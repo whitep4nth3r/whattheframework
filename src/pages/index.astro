@@ -1,37 +1,28 @@
 ---
+import Decisions from "../components/Decisions.astro";
+import StartOver from "../components/StartOver.astro";
+import FrameworkOptions from "../components/FrameworkOptions.astro";
+import { WebsiteType } from "../types/enums";
+import { Frameworks } from "../data/frameworks";
+
 function getEnumKeyByEnumValue(myEnum: any, enumValue: string | null) {
-		if(enumValue === null) {
-			return null;
-		}
+  if (enumValue === null) {
+    return null;
+  }
 
-    let keys = Object.keys(myEnum).filter(x => myEnum[x] == enumValue);
-    return keys.length > 0 ? keys[0] : null;
-}
-
-enum WebsiteType {
-  Static = "Static",
-  MostlyStatic = "MostlyStatic",
-  MostlyStaticOftenUpdated = "MostlyStaticOftenUpdated",
-  NotStatic = "NotStatic",
-}
-
-const frameworks = {
-  [WebsiteType.Static as string]: ["astro"],
- 	[WebsiteType.MostlyStatic  as string]: ["astro"],
-	[WebsiteType.MostlyStaticOftenUpdated  as string]: ["next.js"],
-	[WebsiteType.NotStatic  as string]: ["remix"]
+  let keys = Object.keys(myEnum).filter((x) => myEnum[x] == enumValue);
+  return keys.length > 0 ? keys[0] : null;
 }
 
 const requestUrl = new URL(Astro.request.url);
 const typeParam = requestUrl.searchParams.get("type");
 
-if (typeParam !== null && typeof(typeParam) !== "string") {
-	throw new Error("BKKKAAHAHAHAHAHAHAH");
+if (typeParam !== null && typeof typeParam !== "string") {
+  throw new Error("That wasn't cool, yo!");
 }
 
 const frameworkType = typeParam !== null ? getEnumKeyByEnumValue(WebsiteType, typeParam) : null;
-const frameworkOptions = frameworkType !== null ? frameworks[frameworkType] : null;
-
+const options = frameworkType !== null ? Frameworks[frameworkType] : null;
 const showForm = frameworkType === null;
 ---
 
@@ -46,39 +37,8 @@ const showForm = frameworkType === null;
   <body>
     <h1>What the Framework?</h1>
 
-    {
-			showForm ? (
-				<h2>What type of website are you making?</h2>
-        <form>
-          <fieldset>
-            <div>
-              <input type="radio" name="type" id={WebsiteType.Static} value={WebsiteType.Static} />
-              <label for="static">Static site (home page)</label>
-            </div>
-            <div>
-              <input type="radio" name="type" id={WebsiteType.MostlyStatic} value={WebsiteType.MostlyStatic} />
-              <label for="mostly_static">Mostly static site with updates (blog)</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="type"
-                id={WebsiteType.MostlyStaticOftenUpdated}
-                value={WebsiteType.MostlyStaticOftenUpdated}
-              />
-              <label for="mostly_static_often_updated">Mostly static but often updated (e-commerce)</label>
-            </div>
-            <div>
-              <input type="radio" name="type" id={WebsiteType.NotStatic} value={WebsiteType.NotStatic} />
-              <label for="not_static">Not static, constant updates (interactive application)</label>
-            </div>
-            <button type="submit">Give me frameworks</button>
-          </fieldset>
-        </form>
-      ) : (frameworkOptions?.map((framework: string) => <div>{framework}</div>))
-    }
+    {showForm ? <Decisions /> : <FrameworkOptions options={options} />}
 
-
-		<a href="/">Start over</a>
+    <StartOver />
   </body>
 </html>

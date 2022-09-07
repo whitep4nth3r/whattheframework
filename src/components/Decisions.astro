@@ -1,0 +1,35 @@
+---
+import { WebsiteType } from "../types/enums";
+---
+
+<style>
+
+</style>
+
+<h2>What type of website are you making?</h2>
+<form>
+  <fieldset>
+    <div>
+      <input type="radio" name="type" id={WebsiteType.Static} value={WebsiteType.Static} />
+      <label for={WebsiteType.Static}>Static site (home page)</label>
+    </div>
+    <div>
+      <input type="radio" name="type" id={WebsiteType.MostlyStatic} value={WebsiteType.MostlyStatic} />
+      <label for={WebsiteType.MostlyStatic}>Mostly static site with updates (blog)</label>
+    </div>
+    <div>
+      <input
+        type="radio"
+        name="type"
+        id={WebsiteType.MostlyStaticOftenUpdated}
+        value={WebsiteType.MostlyStaticOftenUpdated}
+      />
+      <label for={WebsiteType.MostlyStaticOftenUpdated}>Mostly static but often updated (e-commerce)</label>
+    </div>
+    <div>
+      <input type="radio" name="type" id={WebsiteType.NotStatic} value={WebsiteType.NotStatic} />
+      <label for={WebsiteType.NotStatic}>Not static, constant updates (interactive application)</label>
+    </div>
+    <button type="submit">Give me frameworks</button>
+  </fieldset>
+</form>

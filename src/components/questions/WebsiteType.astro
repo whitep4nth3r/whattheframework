@@ -1,0 +1,13 @@
+---
+import { WebsiteType } from "../../data/types";
+const types = Object.values(WebsiteType).map((value) => value);
+---
+
+<style>
+  a {
+    display: block;
+  }
+</style>
+
+<h2>What type of website are you making?</h2>
+{types.map((type) => <a href={type.toLowerCase()}>{type}</a>)}

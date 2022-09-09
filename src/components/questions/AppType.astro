@@ -1,0 +1,20 @@
+---
+import { AppType } from "../../data/types";
+const { params } = Astro;
+
+const paths = Object.values(AppType).map((value) => {
+  return {
+    slug: `/${params.websiteType}/${value.toLowerCase()}`,
+    name: value,
+  };
+});
+---
+
+<style>
+  a {
+    display: block;
+  }
+</style>
+
+<h2>Here is a question about spa vs mpa that we will word better</h2>
+{paths.map((path) => <a href={path.slug}>{path.name}</a>)}

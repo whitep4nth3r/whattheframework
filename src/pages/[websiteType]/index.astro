@@ -1,0 +1,22 @@
+---
+import Main from "../../layouts/Main.astro";
+import AppType from "../../components/questions/AppType.astro";
+import Validator from "../../utils/Validator";
+import FrameworkOptions from "../../components/FrameworkOptions.astro";
+import FrameworkSelector from "../../utils/FrameworkSelector";
+
+const { params } = Astro;
+
+if (!Validator.websiteType(params.websiteType)) {
+  return Astro.redirect("/");
+}
+
+const options = FrameworkSelector({ websiteType: params.websiteType, appType: params.appType });
+---
+
+<Main>
+  <h1>app type question</h1>
+  <AppType />
+
+  <FrameworkOptions options={options} />
+</Main>

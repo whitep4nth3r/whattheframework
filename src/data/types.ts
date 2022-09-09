@@ -1,21 +1,28 @@
 export enum WebsiteType {
-  Static = "Static",
-  MostlyStatic = "MostlyStatic",
-  MostlyStaticOftenUpdated = "MostlyStaticOftenUpdated",
-  NotStatic = "NotStatic",
+  Static = "static",
+  MostlyStatic = "mostlystatic",
+  MostlyStaticOftenUpdated = "mostlystaticoftenupdated",
+  NotStatic = "notstatic",
+}
+
+export enum AppType {
+  Spa = "spa",
+  Mpa = "mpa",
 }
 
 export type Framework = {
   websiteTypes: WebsiteType[];
+  appTypes: AppType[];
   features: {
-    typescript: boolean;
-    hasCli: boolean;
-    fileBasedRouting: boolean;
+    // typescript: boolean;
+    // hasCli: boolean;
+    // fileBasedRouting: boolean;
   };
   ecosystemIntegrations: {};
   meta: {
     name: string;
     docsLink: string;
+    githubOrg: string;
     githubRepo: string;
   };
 };

@@ -1,44 +1,9 @@
 ---
-import Decisions from "../components/Decisions.astro";
-import StartOver from "../components/StartOver.astro";
-import FrameworkOptions from "../components/FrameworkOptions.astro";
-import { WebsiteType } from "../data/types";
-import { Frameworks } from "../data/frameworks";
-
-function getEnumKeyByEnumValue(myEnum: any, enumValue: string | null) {
-  if (enumValue === null) {
-    return null;
-  }
-
-  let keys = Object.keys(myEnum).filter((x) => myEnum[x] == enumValue);
-  return keys.length > 0 ? keys[0] : null;
-}
-
-const requestUrl = new URL(Astro.request.url);
-const typeParam = requestUrl.searchParams.get("type");
-
-if (typeParam !== null && typeof typeParam !== "string") {
-  throw new Error("That wasn't cool, yo!");
-}
-
-const frameworkType = typeParam !== null ? getEnumKeyByEnumValue(WebsiteType, typeParam) : null;
-const options = frameworkType !== null ? Frameworks[frameworkType] : null;
-const showForm = frameworkType === null;
+import Main from "../layouts/Main.astro";
+import WebsiteType from "../components/questions/WebsiteType.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>What the Framework?</title>
-  </head>
-  <body>
-    <h1>What the Framework?</h1>
-
-    {showForm ? <Decisions /> : <FrameworkOptions options={options} />}
-
-    <StartOver />
-  </body>
-</html>
+<Main>
+  <h1>website type question</h1>
+  <WebsiteType />
+</Main>

@@ -1,7 +1,9 @@
 ---
+import type { Framework } from "../data/types";
+
 const { options } = Astro.props;
 ---
 
 <div>
-  {options?.map((option: string) => <div>{option}</div>)}
+  {options?.map((option: Framework) => <div>{option.meta.name}</div>)}
 </div>

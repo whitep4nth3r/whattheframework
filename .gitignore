@@ -20,3 +20,6 @@ pnpm-debug.log*
 
 # VSCode specific
 ./vscode
+
+# Local Netlify folder
+.netlify

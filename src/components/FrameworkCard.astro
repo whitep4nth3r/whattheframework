@@ -1,0 +1,20 @@
+---
+const { data } = Astro.props;
+---
+
+<style>
+  .framework {
+    border: 2px solid grey;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    display: block;
+  }
+</style>
+
+<div class="framework">
+  <h2>{data.meta.name}</h2>
+  <a href={data.meta.docsLink} target="_blank">Docs</a>
+  <a href={`https://github.com/${data.meta.githubOrg}/${data.meta.githubRepo}`} target="_blank">GitHub</a>
+</div>

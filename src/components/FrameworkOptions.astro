@@ -1,32 +1,11 @@
 ---
 import type { Framework } from "../data/types";
+import FrameworkCard from "./FrameworkCard.astro";
 
 const { options } = Astro.props;
 ---
 
-<style>
-  .framework {
-    border: 2px solid blue;
-  }
-
-  a {
-    display: block;
-  }
-</style>
-
 <div>
   <h2>Choose from these now!</h2>
-  {
-    options?.map((option: Framework) => (
-      <div class="framework">
-        <h2>{option.meta.name}</h2>
-        <a href={option.meta.docsLink} target="_blank">
-          Docs
-        </a>
-        <a href="`https://github/com/${option.meta.githubOrg}/${option.meta.githubRepo}`" target="_blank">
-          GitHub
-        </a>
-      </div>
-    ))
-  }
+  {options?.map((option: Framework) => <FrameworkCard data={option} />)}
 </div>

@@ -11,7 +11,9 @@ type FrameworkOptions = {
 const FrameworkSelector = (options: FrameworkOptions): Framework[] => {
   if (options.appType !== undefined && options.websiteType !== undefined) {
     // first we filter by websiteType
-    const currentOptions = Frameworks[options.websiteType];
+    const currentOptions = Frameworks.filter((framework) =>
+      framework.websiteTypes.includes(options.websiteType as WebsiteType),
+    );
 
     // then we filter those options by appType
     const filteredOptions = currentOptions.filter((option) => option.appTypes.includes(options.appType as AppType));
@@ -20,7 +22,7 @@ const FrameworkSelector = (options: FrameworkOptions): Framework[] => {
   }
 
   if (options.websiteType !== undefined) {
-    return Frameworks[options.websiteType];
+    return Frameworks.filter((framework) => framework.websiteTypes.includes(options.websiteType as WebsiteType));
   }
 
   return [];

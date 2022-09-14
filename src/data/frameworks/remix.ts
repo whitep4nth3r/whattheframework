@@ -1,7 +1,7 @@
 import { Framework, WebsiteType, AppType } from "./../types";
 
 export const Remix: Framework = {
-  websiteTypes: [WebsiteType.NotStatic],
+  websiteTypes: [WebsiteType.Dynamic],
   appTypes: [AppType.Spa],
   features: {
     typescript: true,

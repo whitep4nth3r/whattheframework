@@ -1,7 +1,7 @@
 import { Framework, WebsiteType, AppType } from "./../types";
 
-export const React: Framework = {
-  websiteTypes: [WebsiteType.Dynamic],
+export const Docusaurus: Framework = {
+  websiteTypes: [WebsiteType.Static],
   appTypes: [AppType.Spa],
   features: {
     typescript: true,
@@ -11,8 +11,8 @@ export const React: Framework = {
   ecosystemIntegrations: {},
   meta: {
     name: "React",
-    docsLink: "https://reactjs.org/docs/getting-started.html",
+    docsLink: "https://docusaurus.io/docs",
     githubOrg: "facebook",
-    githubRepo: "react",
+    githubRepo: "docusaurus",
   },
 };

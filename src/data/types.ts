@@ -1,8 +1,7 @@
 export enum WebsiteType {
-  Static = "static",
-  MostlyStatic = "mostlystatic",
-  MostlyStaticOftenUpdated = "mostlystaticoftenupdated",
-  NotStatic = "notstatic",
+  Static = "static", // ssg
+  Hybrid = "hybrid", // some server-side runtime available to make dynamic content
+  Dynamic = "dynamic", // ssr
 }
 
 export enum AppType {

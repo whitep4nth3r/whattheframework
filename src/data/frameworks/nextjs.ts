@@ -1,7 +1,7 @@
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType } from "./../types";
 
 export const NextJs: Framework = {
-  websiteTypes: [WebsiteType.MostlyStatic, WebsiteType.MostlyStaticOftenUpdated],
+  websiteTypes: [WebsiteType.Hybrid],
   appTypes: [AppType.Spa],
   features: {
     typescript: true,

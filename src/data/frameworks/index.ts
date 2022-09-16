@@ -16,6 +16,9 @@ import { React } from "./react";
 import { Redwood } from "./redwood";
 import { Remix } from "./remix";
 import { Scully } from "./scully";
+import { SolidJs } from "./solidjs";
+import { Svelte } from "./svelte";
+import { Vue } from "./vue";
 
 export const Frameworks = [
   Angular,
@@ -36,6 +39,9 @@ export const Frameworks = [
   Redwood,
   Remix,
   Scully,
+  SolidJs,
+  Svelte,
+  Vue,
 ];
 
 /**
@@ -46,4 +52,6 @@ export const Frameworks = [
  * - are built for web (not native device apps)
  *
  * WE SHOULD PUT THIS IN THE FAQs or something
+ *
+ * Not adding SvelteKit yet — not v1, lots of breaking changes
  */

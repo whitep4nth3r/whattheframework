@@ -1,10 +1,10 @@
 import { Framework, WebsiteType, AppType } from "../types";
 
-//subframework — React
+//subframework —
 
-export const Remix: Framework = {
+export const Qwik: Framework = {
   websiteTypes: [WebsiteType.Dynamic],
-  appTypes: [AppType.Spa],
+  appTypes: [AppType.Mpa],
   features: {
     typescript: true,
     hasCli: true,
@@ -12,9 +12,9 @@ export const Remix: Framework = {
   },
   ecosystemIntegrations: {},
   meta: {
-    name: "Remix",
-    docsLink: "https://remix.run/docs/en/v1",
-    githubOrg: "remix-run",
-    githubRepo: "remix",
+    name: "Qwik",
+    docsLink: "https://qwik.builder.io/docs/overview/",
+    githubOrg: "BuilderIO",
+    githubRepo: "qwik",
   },
 };

@@ -1,5 +1,8 @@
 import { Framework, WebsiteType, AppType } from "../types";
 
+//subframework Angular
+
+
 export const Scully: Framework = {
   websiteTypes: [WebsiteType.Static],
   appTypes: [AppType.Spa],

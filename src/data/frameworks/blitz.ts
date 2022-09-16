@@ -1,7 +1,8 @@
-import { Framework, WebsiteType, AppType } from "./../types";
+import { Framework, WebsiteType, AppType } from "../types";
 
 // THIS IS BIG
 // And would have a LOT of data in "features" and "ecosystemIntegrations"
+//subframework — React, Next.js
 
 export const Blitz: Framework = {
   websiteTypes: [WebsiteType.Hybrid, WebsiteType.Dynamic],

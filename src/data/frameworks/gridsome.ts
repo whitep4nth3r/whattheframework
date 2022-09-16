@@ -1,8 +1,8 @@
 import { Framework, WebsiteType, AppType } from "../types";
 
-//subframework — Angular
+//subframework — Vue
 
-export const AngularUniversal: Framework = {
+export const Gridsome: Framework = {
   websiteTypes: [WebsiteType.Static],
   appTypes: [AppType.Spa],
   features: {
@@ -12,9 +12,9 @@ export const AngularUniversal: Framework = {
   },
   ecosystemIntegrations: {},
   meta: {
-    name: "Angular Universal",
-    docsLink: "https://angular.io/guide/universal",
-    githubOrg: "angular",
-    githubRepo: "universal",
+    name: "Gridsome",
+    docsLink: "https://gridsome.org/docs/",
+    githubOrg: "gridsome",
+    githubRepo: "gridsome",
   },
 };

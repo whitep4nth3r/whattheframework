@@ -1,4 +1,4 @@
-import { Framework, WebsiteType, AppType } from "./../types";
+import { Framework, WebsiteType, AppType } from "../types";
 
 /**
  * Technically, eleventy can do all website types with the intro of eleventy edge for SSR

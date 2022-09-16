@@ -1,5 +1,5 @@
-import { Frameworks } from "./../data/frameworks";
-import type { Framework, WebsiteType, AppType } from "./../data/types";
+import { Frameworks } from "../data/frameworks";
+import type { Framework, WebsiteType, AppType } from "../data/types";
 
 // need to better type this with the enums!!
 

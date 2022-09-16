@@ -1,4 +1,6 @@
-import { Framework, WebsiteType, AppType } from "./../types";
+import { Framework, WebsiteType, AppType } from "../types";
+
+//subframework — React
 
 export const Docusaurus: Framework = {
   websiteTypes: [WebsiteType.Static],

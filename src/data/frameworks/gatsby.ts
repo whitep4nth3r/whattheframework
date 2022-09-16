@@ -2,8 +2,8 @@ import { Framework, WebsiteType, AppType } from "../types";
 
 //subframework — React
 
-export const Remix: Framework = {
-  websiteTypes: [WebsiteType.Dynamic],
+export const Gatsby: Framework = {
+  websiteTypes: [WebsiteType.Static, WebsiteType.Hybrid],
   appTypes: [AppType.Spa],
   features: {
     typescript: true,
@@ -12,9 +12,9 @@ export const Remix: Framework = {
   },
   ecosystemIntegrations: {},
   meta: {
-    name: "Remix",
-    docsLink: "https://remix.run/docs/en/v1",
-    githubOrg: "remix-run",
-    githubRepo: "remix",
+    name: "Gatsby",
+    docsLink: "https://www.gatsbyjs.com/docs",
+    githubOrg: "gatsbyjs",
+    githubRepo: "gatsby",
   },
 };

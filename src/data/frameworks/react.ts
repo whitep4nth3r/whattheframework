@@ -1,4 +1,4 @@
-import { Framework, WebsiteType, AppType } from "./../types";
+import { Framework, WebsiteType, AppType } from "../types";
 
 export const React: Framework = {
   websiteTypes: [WebsiteType.Dynamic],

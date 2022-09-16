@@ -1,20 +1,20 @@
 import { Framework, WebsiteType, AppType } from "../types";
 
-//subframework — LOTS OF THEM
+//subframework — Vue?
 
-export const Astro: Framework = {
+export const Nuxt: Framework = {
   websiteTypes: [WebsiteType.Static, WebsiteType.Dynamic],
-  appTypes: [AppType.Mpa],
+  appTypes: [AppType.Spa],
   features: {
     typescript: true,
-    hasCli: true,
+    hasCli: false,
     // fileBasedRouting: true,
   },
   ecosystemIntegrations: {},
   meta: {
-    name: "Astro",
-    docsLink: "https://docs.astro.build",
-    githubOrg: "withastro",
-    githubRepo: "astro",
+    name: "Nuxt",
+    docsLink: "https://nuxtjs.org/docs/get-started/installation",
+    githubOrg: "nuxt",
+    githubRepo: "nuxt.js",
   },
 };

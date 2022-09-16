@@ -1,6 +1,4 @@
-import { Framework, WebsiteType, AppType } from "./../types";
-
-
+import { Framework, WebsiteType, AppType } from "../types";
 
 export const Angular: Framework = {
   websiteTypes: [WebsiteType.Dynamic],

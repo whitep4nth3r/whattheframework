@@ -1,6 +1,5 @@
 import { Framework, WebsiteType, AppType } from "../types";
-
-//subframework — React
+import { React } from "./react";
 
 export const Docusaurus: Framework = {
   websiteTypes: [WebsiteType.Static],
@@ -8,11 +7,12 @@ export const Docusaurus: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: false,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [React],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
-    name: "React",
+    name: "Docusaurus",
     docsLink: "https://docusaurus.io/docs",
     githubOrg: "facebook",
     githubRepo: "docusaurus",

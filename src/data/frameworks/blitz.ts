@@ -1,8 +1,9 @@
+import { NextJs } from "./nextjs";
+import { React } from "./react";
 import { Framework, WebsiteType, AppType } from "../types";
 
 // THIS IS BIG
 // And would have a LOT of data in "features" and "ecosystemIntegrations"
-//subframework — React, Next.js
 
 export const Blitz: Framework = {
   websiteTypes: [WebsiteType.Hybrid, WebsiteType.Dynamic],
@@ -10,9 +11,10 @@ export const Blitz: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [React, NextJs],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Blitz",
     docsLink: "https://blitzjs.com/docs/get-started",

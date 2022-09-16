@@ -11,6 +11,7 @@ import { Hexo } from "./hexo";
 import { Metalsmith } from "./metalsmith";
 import { NextJs } from "./nextjs";
 import { Nuxt } from "./nuxt";
+import { Preact } from "./preact";
 import { Qwik } from "./qwik";
 import { React } from "./react";
 import { Redwood } from "./redwood";
@@ -34,6 +35,7 @@ export const Frameworks = [
   Metalsmith,
   NextJs,
   Nuxt,
+  Preact,
   Qwik,
   React,
   Redwood,

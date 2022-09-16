@@ -1,6 +1,6 @@
+import { React } from "./react";
 import { Framework, WebsiteType, AppType } from "../types";
 
-// subframework
 // lots of ecosystem integrations in this one
 
 export const Redwood: Framework = {
@@ -9,9 +9,10 @@ export const Redwood: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [React],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Redwood",
     docsLink: "https://redwoodjs.com/docs/introduction",

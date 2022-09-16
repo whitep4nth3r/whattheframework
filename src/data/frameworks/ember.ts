@@ -6,9 +6,10 @@ export const Ember: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Ember",
     docsLink: "https://emberjs.com/",

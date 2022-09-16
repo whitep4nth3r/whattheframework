@@ -1,7 +1,7 @@
+import { Angular } from "./angular";
 import { Framework, WebsiteType, AppType } from "../types";
 
 //subframework Angular
-
 
 export const Scully: Framework = {
   websiteTypes: [WebsiteType.Static],
@@ -9,9 +9,10 @@ export const Scully: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [Angular],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Scully",
     docsLink: "https://scully.io/",

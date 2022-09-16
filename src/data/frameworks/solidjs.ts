@@ -8,9 +8,10 @@ export const SolidJs: Framework = {
   features: {
     typescript: true,
     hasCli: false,
-    // fileBasedRouting: false,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "SolidJs",
     docsLink: "https://www.solidjs.com/tutorial/introduction_basics",

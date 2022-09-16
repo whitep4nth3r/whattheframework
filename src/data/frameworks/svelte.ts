@@ -6,9 +6,10 @@ export const Svelte: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: false,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Svelte",
     docsLink: "https://svelte.dev/tutorial/basics",

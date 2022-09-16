@@ -6,9 +6,10 @@ export const React: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: false,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "React",
     docsLink: "https://reactjs.org/docs/getting-started.html",

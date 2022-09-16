@@ -9,19 +9,25 @@ export enum AppType {
   Mpa = "mpa",
 }
 
-//TODO — add in a "sub frameworks" bit of data, such as React, Vue etc
-//TODO — add in a "supporting templating engines?" bit of data, such as pug, liquid
+export type TemplatingEngine = {
+  meta: {
+    name: string;
+  };
+};
+
 //TODO — add edge rendering support
+//TODO - add ecosystem integrations
 
 export type Framework = {
   websiteTypes: WebsiteType[];
   appTypes: AppType[];
   features: {
-    // typescript: boolean;
-    // hasCli: boolean;
-    // fileBasedRouting: boolean;
+    typescript: boolean;
+    hasCli: boolean;
   };
-  ecosystemIntegrations: {};
+  usesFrameworks: Framework[];
+  templatingEngines: TemplatingEngine[];
+  ecosystemIntegrations: [];
   meta: {
     name: string;
     docsLink: string;

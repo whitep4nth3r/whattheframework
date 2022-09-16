@@ -1,6 +1,5 @@
+import { Vue } from "./vue";
 import { Framework, WebsiteType, AppType } from "../types";
-
-//subframework — Vue?
 
 export const Nuxt: Framework = {
   websiteTypes: [WebsiteType.Static, WebsiteType.Dynamic],
@@ -8,9 +7,10 @@ export const Nuxt: Framework = {
   features: {
     typescript: true,
     hasCli: false,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [Vue],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Nuxt",
     docsLink: "https://nuxtjs.org/docs/get-started/installation",

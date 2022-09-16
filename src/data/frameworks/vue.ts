@@ -6,9 +6,10 @@ export const Vue: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: false,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Vue",
     docsLink: "https://vuejs.org/guide/introduction.html",

@@ -1,6 +1,5 @@
+import { React } from "./react";
 import { Framework, WebsiteType, AppType } from "../types";
-
-//subframework — React
 
 export const NextJs: Framework = {
   websiteTypes: [WebsiteType.Hybrid],
@@ -8,9 +7,10 @@ export const NextJs: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [React],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Next.js",
     docsLink: "https://nextjs.org/docs",

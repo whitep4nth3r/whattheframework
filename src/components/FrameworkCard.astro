@@ -1,4 +1,6 @@
 ---
+import type { Framework } from "../data/types";
+
 const { data } = Astro.props;
 ---
 
@@ -13,8 +15,22 @@ const { data } = Astro.props;
   }
 </style>
 
-<div class="framework">
+<li class="framework">
   <h2>{data.meta.name}</h2>
+
+  <dl>
+    <dt>TypeScript support</dt>
+    <dd>{data.features.typescript ? "Yes" : "No"}</dd>
+    <dt>Has CLI</dt>
+    <dd>{data.features.hasCli ? "Yes" : "No"}</dd>
+    {data.usesFrameworks.length > 0 ?
+      (<dt>Uses frameworks</dt><dd>{data.usesFrameworks.map((fw: Framework) => <span>{fw.meta.name}</span>)}</dd>) : ""
+    }
+     {data.templatingEngines.length > 0 ?
+      (<dt>Templating engines</dt><dd>{data.templatingEngines.map((te: Framework) => <span>{te.meta.name}</span>)}</dd>) : ""
+    }
+  </dl>
+
   <a href={data.meta.docsLink} target="_blank">Docs</a>
   <a href={`https://github.com/${data.meta.githubOrg}/${data.meta.githubRepo}`} target="_blank">GitHub</a>
-</div>
+</li>

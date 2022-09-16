@@ -1,6 +1,5 @@
+import { Vue } from "./vue";
 import { Framework, WebsiteType, AppType } from "../types";
-
-//subframework — Vue
 
 export const Gridsome: Framework = {
   websiteTypes: [WebsiteType.Static],
@@ -8,9 +7,10 @@ export const Gridsome: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [Vue],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Gridsome",
     docsLink: "https://gridsome.org/docs/",

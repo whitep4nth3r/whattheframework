@@ -1,3 +1,4 @@
+import { React } from "./react";
 import { Framework, WebsiteType, AppType } from "../types";
 
 //subframework — React
@@ -8,9 +9,10 @@ export const Gatsby: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [React],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Gatsby",
     docsLink: "https://www.gatsbyjs.com/docs",

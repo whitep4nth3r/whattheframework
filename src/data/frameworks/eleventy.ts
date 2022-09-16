@@ -1,3 +1,4 @@
+import { Liquid } from "./../templating-engines/liquid";
 import { Framework, WebsiteType, AppType } from "../types";
 
 /**
@@ -13,9 +14,10 @@ export const Eleventy: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [],
+  templatingEngines: [Liquid],
+  ecosystemIntegrations: [],
   meta: {
     name: "Eleventy",
     docsLink: "https://www.11ty.dev/docs/",

@@ -1,13 +1,30 @@
 ---
 import { WebsiteType } from "../../data/types";
 const types = Object.values(WebsiteType).map((value) => value);
+
+const supportingInfo: any = {
+  [WebsiteType.Static]: "info about static",
+  [WebsiteType.Hybrid]: "info about hybrid",
+  [WebsiteType.Dynamic]: "info about dynamic",
+};
 ---
 
 <style>
-  a {
+  .choice {
+    border: 1px solid green;
+    margin-bottom: 1rem;
     display: block;
   }
 </style>
 
-<h2>What type of website are you making?</h2>
-{types.map((type) => <a href={type.toLowerCase()}>{type}</a>)}
+<h2>What type of website are you building?</h2>
+{
+  types.map((type) => (
+    <div class="choice">
+      <a href={type.toLowerCase()}>
+        <h3>{type}</h3>
+      </a>
+      <p>{supportingInfo[type]}</p>
+    </div>
+  ))
+}

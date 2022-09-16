@@ -8,13 +8,29 @@ const paths = Object.values(AppType).map((value) => {
     name: value,
   };
 });
+
+const supportingInfo: any = {
+  [AppType.Spa]: "info about spa",
+  [AppType.Mpa]: "info about mpa",
+};
 ---
 
 <style>
-  a {
+  .choice {
+    border: 1px solid green;
+    margin-bottom: 1rem;
     display: block;
   }
 </style>
 
-<h2>Here is a question about spa vs mpa that we will word better</h2>
-{paths.map((path) => <a href={path.slug}>{path.name}</a>)}
+<h2>Do you need client-side routing? MORE INFO HERE</h2>
+{
+  paths.map((path) => (
+    <div class="choice">
+      <a href={path.slug}>
+        <h3>{path.name}</h3>
+      </a>
+      <p>{supportingInfo[path.name]}</p>
+    </div>
+  ))
+}

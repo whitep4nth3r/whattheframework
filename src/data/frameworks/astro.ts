@@ -1,3 +1,8 @@
+import { Preact } from "./preact";
+import { Angular } from "./angular";
+import { SolidJs } from "./solidjs";
+import { Vue } from "./vue";
+import { React } from "./react";
 import { Framework, WebsiteType, AppType } from "../types";
 
 //subframework — LOTS OF THEM
@@ -8,9 +13,10 @@ export const Astro: Framework = {
   features: {
     typescript: true,
     hasCli: true,
-    // fileBasedRouting: true,
   },
-  ecosystemIntegrations: {},
+  usesFrameworks: [Angular, Preact, React, SolidJs, Vue],
+  templatingEngines: [],
+  ecosystemIntegrations: [],
   meta: {
     name: "Astro",
     docsLink: "https://docs.astro.build",

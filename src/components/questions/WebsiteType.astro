@@ -33,6 +33,7 @@ const supportingInfo: any = {
     border: 1px solid green;
     margin-bottom: 1rem;
     display: block;
+    padding: 0 1rem 1rem 1rem;
   }
 
   .examples {
@@ -51,9 +52,8 @@ const supportingInfo: any = {
       </a>
       <p>{supportingInfo[type].details}</p>
       <div class="examples">
-        <span>Examples??</span>
         {supportingInfo[type].examples.map((example: string) => (
-          <span>{example}</span>
+          <small>{example}</small>
         ))}
       </div>
     </div>

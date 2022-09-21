@@ -2,21 +2,26 @@
 import StartOver from "../components/StartOver.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>What the Framework?</title>
-  </head>
-  <body>
-    <main>
-      <slot />
+<style>
+  main {
+    max-width: 700px;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+  }
+</style>
 
-      <div style="margin-top: 100px;">
-        <StartOver />
-      </div>
-    </main>
-  </body>
-</html>
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<title>What the Framework?</title>
+
+<body>
+  <main>
+    <slot />
+
+    <div style="margin-top: 100px;">
+      <StartOver />
+    </div>
+  </main>
+</body>

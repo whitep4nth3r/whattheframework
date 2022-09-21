@@ -6,23 +6,26 @@ const supportingInfo: any = {
   [WebsiteType.Static]: {
     heading: "Static site",
     details: "A content-based website that provides the same content and experience on every visit.",
-    examples: ["blog site", "personal portfolio", "marketing site"],
+    examples: ["blog", "marketing site", "documentation"],
   },
   [WebsiteType.Hybrid]: {
     heading: "Flexible site",
     details:
       "A website that may have some static pages, but may also need to cater for unique content on visits to certain pages.",
-    examples: ["", "", ""],
+    examples: ["ecommerce", "news", "learning platforms", "bulletin boards"],
   },
   [WebsiteType.Dynamic]: {
     heading: "Dynamic site",
     details: "A website that can provide different content and experiences on each page view.",
-    examples: ["", "forum", "video streaming service"],
+    examples: ["social media", "forum", "video streaming service"],
   },
 };
 
-// Dynamic sites allow for changing content, such as: user login, filtering and manipulating visible data, collection of visitor data.
-// only difference is that contnet could very vased upon who the visitor is
+// Static - the majority of users interact with pre-built pages/ files.
+
+// Flexible - the user interactions are split between unchanging pages and pages that change with user actions
+
+// Dynamic - the majority of users interact with pages that change frequently, often in reaction to the users doing something.
 ---
 
 <style>
@@ -31,10 +34,15 @@ const supportingInfo: any = {
     margin-bottom: 1rem;
     display: block;
   }
+
+  .examples {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
 </style>
 
 <h2>What type of website are you building?</h2>
-<p>How it's deployed............. basically do you need SSG, SSR, or a MIX</p>
 {
   types.map((type) => (
     <div class="choice">
@@ -42,6 +50,14 @@ const supportingInfo: any = {
         <h3>{supportingInfo[type].heading}</h3>
       </a>
       <p>{supportingInfo[type].details}</p>
+      <div class="examples">
+        <span>Examples??</span>
+        {supportingInfo[type].examples.map((example: string) => (
+          <span>{example}</span>
+        ))}
+      </div>
     </div>
   ))
 }
+<h2>Read more here about how we're defining things...</h2>
+<p>How it's deployed............. basically do you need SSG, SSR, or a MIX</p>

@@ -21,9 +21,21 @@ const { data } = Astro.props;
     flex-grow: 1;
     flex-direction: column;
   }
+
+  .logo {
+    height: 4rem;
+    aspect-ratio: 1/1;
+  }
+
+  .logo img {
+    height: 100%;
+  }
 </style>
 
 <li class="framework">
+  <div class="logo">
+    <img src={`https://github.com/${data.meta.githubOrg}.png`} alt={data.meta.name} loading="lazy" />
+  </div>
   <h2>{data.meta.name}</h2>
 
   <dl>

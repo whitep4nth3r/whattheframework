@@ -8,8 +8,8 @@ import { Framework, WebsiteType, AppType } from "../types";
 //subframework — LOTS OF THEM
 
 export const Astro: Framework = {
-  websiteTypes: [WebsiteType.Static, WebsiteType.Dynamic],
-  appTypes: [AppType.Mpa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Static, WebsiteType.Dynamic],
+  appTypesInOrderOfPriority: [AppType.Mpa],
   features: {
     typescript: true,
     hasCli: true,

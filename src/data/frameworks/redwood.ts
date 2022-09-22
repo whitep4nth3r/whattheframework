@@ -4,8 +4,8 @@ import { Framework, WebsiteType, AppType } from "../types";
 // lots of ecosystem integrations in this one
 
 export const Redwood: Framework = {
-  websiteTypes: [WebsiteType.Static, WebsiteType.Hybrid, WebsiteType.Dynamic],
-  appTypes: [AppType.Mpa, AppType.Spa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Dynamic, WebsiteType.Hybrid, WebsiteType.Static],
+  appTypesInOrderOfPriority: [AppType.Mpa, AppType.Spa],
   features: {
     typescript: true,
     hasCli: true,

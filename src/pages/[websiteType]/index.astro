@@ -1,9 +1,13 @@
 ---
 import Main from "../../layouts/Main.astro";
 import AppType from "../../components/questions/AppType.astro";
+import StartOver from "../../components/StartOver.astro";
 import Validator from "../../utils/Validator";
 import FrameworkOptions from "../../components/FrameworkOptions.astro";
 import FrameworkSelector from "../../utils/FrameworkSelector";
+import { WebsiteType } from "../../data/types";
+import { SupportingInfo } from "../../data/supporting-info";
+import { shuffle } from "../../utils/tools";
 
 const { params } = Astro;
 
@@ -12,10 +16,29 @@ if (!Validator.websiteType(params.websiteType)) {
 }
 
 const options = FrameworkSelector({ websiteType: params.websiteType, appType: params.appType });
+
+const topPicks = shuffle(options.filter((option) => option.websiteTypesInOrderOfPriority[0] === params.websiteType));
+
+const otherPicks = shuffle(options.filter((option) => option.websiteTypesInOrderOfPriority[0] !== params.websiteType));
 ---
 
 <Main>
-  <AppType />
+  <h1>
+    Your website is most probably a {SupportingInfo.websiteType[params.websiteType as WebsiteType].name}
+  </h1>
+  <h2>made up of {SupportingInfo.websiteType[params.websiteType as WebsiteType].technology}</h2>
 
-  <FrameworkOptions options={options} />
+  <hr />
+
+  {params.websiteType !== WebsiteType.Static ? <AppType /> : ""}
+
+  <h2>Top picks for {SupportingInfo.websiteType[params.websiteType as WebsiteType].name}s</h2>
+  <FrameworkOptions options={topPicks} />
+
+  <h2>Other frameworks that may also suit this type of website</h2>
+  <FrameworkOptions options={otherPicks} />
+
+  <div style="margin-top: 100px;">
+    <StartOver />
+  </div>
 </Main>

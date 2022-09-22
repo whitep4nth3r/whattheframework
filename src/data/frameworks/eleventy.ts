@@ -9,8 +9,8 @@ import { Framework, WebsiteType, AppType } from "../types";
  * should we have a weighting system on website types???????????
  */
 export const Eleventy: Framework = {
-  websiteTypes: [WebsiteType.Static, WebsiteType.Hybrid],
-  appTypes: [AppType.Mpa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Static, WebsiteType.Hybrid],
+  appTypesInOrderOfPriority: [AppType.Mpa],
   features: {
     typescript: true,
     hasCli: true,

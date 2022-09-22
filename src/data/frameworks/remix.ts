@@ -4,8 +4,8 @@ import { Framework, WebsiteType, AppType } from "../types";
 //subframework — React
 
 export const Remix: Framework = {
-  websiteTypes: [WebsiteType.Dynamic],
-  appTypes: [AppType.Spa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Dynamic],
+  appTypesInOrderOfPriority: [AppType.Spa],
   features: {
     typescript: true,
     hasCli: true,

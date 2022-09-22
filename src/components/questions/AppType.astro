@@ -2,27 +2,10 @@
 import { AppType } from "../../data/types";
 const { params } = Astro;
 const { websiteType } = params;
+import { SupportingInfo } from "../../data/supporting-info";
 
 const types = Object.values(AppType).map((value) => value);
 
-// A Multi-Page Application (MPA) is a website consisting of multiple HTML pages, mostly rendered on a server. When you navigate to a new page, your browser requests a new page of HTML from the server. Astro is an MPA framework. Traditional MPA frameworks also include Ruby on Rails, Python Django, PHP Laravel, WordPress, Joomla, Drupal and static site builders like Eleventy or Hugo.
-
-// A Single-Page Application (SPA) is a website consisting of a single JavaScript application that loads in the user’s browser and then renders HTML locally. SPAs may also generate HTML on the server, but SPAs are unique in their ability to run your website as a JavaScript application in the browser to render a new page of HTML when you navigate. Next.js, Nuxt, SvelteKit, Remix, Gatsby, and Create React App are all examples of SPA frameworks.
-
-const supportingInfo: any = {
-  [AppType.Spa]: {
-    heading: "Yes",
-    details:
-      "You need a Single-Page Application (SPA). This is a website consisting of a single JavaScript application that usually builds HTML pages in the user's browser (client). When you navigate to a new page in a SPA, the JavaScript application builds the HTML. SPAs are a good choice for websites that deal with complex, multi-page state management and data sharing.",
-    examples: ["Gmail", "Discord", "Twitter"],
-  },
-  [AppType.Mpa]: {
-    heading: "No",
-    details:
-      "You need a Multi-Page Application (MPA). This is a website consisting of multiple HTML pages that are usually built on and delivered from a server or content delivery network (CDN). When you navigate to a new page in a MPA, your browser requests a new page of HTML from the server. MPAs are a good choice for content-based websites where separate pages don't rely on the same state, data or memory.",
-    examples: ["Google", "BBC", "Amazon"],
-  },
-};
 ---
 
 <style>
@@ -45,26 +28,26 @@ const supportingInfo: any = {
 </style>
 
 <h1>Do you need your website to maintain state across multiple pages?</h1>
-<details class="details">
-  <summary>What is state?</summary>
+<div class="details">
+  <h2>What is state?</h2>
   <p>
     State is what a thing is currently like. The current state of your house is made up of all the furniture, objects,
     animals, plants, and people inside it, and other environmental factors such as the temperature and whether you need
     to do the washing up. The current state of a piece of software includes all the data held about that application in
     a browser at any one time.
   </p>
-</details>
+</div>
 
 {
   types.map((type) => (
     <div class="choice">
       <a href={`${websiteType}/${type.toLowerCase()}`}>
-        <h3>{supportingInfo[type].heading}</h3>
+        <h3>{SupportingInfo.appType[type].answerToAppTypeQuestion}</h3>
       </a>
-      <p>{supportingInfo[type].details}</p>
+      <!-- <p>{supportingInfo[type].details}</p> -->
       <div class="examples">
         <small>Things like:</small>
-        {supportingInfo[type].examples.map((example: string) => (
+        {SupportingInfo.appType[type].examples.map((example: string) => (
           <small>{example}</small>
         ))}
       </div>

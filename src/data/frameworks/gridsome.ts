@@ -2,8 +2,8 @@ import { Vue } from "./vue";
 import { Framework, WebsiteType, AppType } from "../types";
 
 export const Gridsome: Framework = {
-  websiteTypes: [WebsiteType.Static],
-  appTypes: [AppType.Spa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Static],
+  appTypesInOrderOfPriority: [AppType.Spa],
   features: {
     typescript: true,
     hasCli: true,

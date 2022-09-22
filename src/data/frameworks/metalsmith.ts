@@ -1,8 +1,8 @@
 import { Framework, WebsiteType, AppType } from "../types";
 
 export const Metalsmith: Framework = {
-  websiteTypes: [WebsiteType.Static],
-  appTypes: [AppType.Mpa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Static],
+  appTypesInOrderOfPriority: [AppType.Mpa],
   features: {
     typescript: false,
     hasCli: false,

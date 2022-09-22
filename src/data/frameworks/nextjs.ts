@@ -2,8 +2,8 @@ import { React } from "./react";
 import { Framework, WebsiteType, AppType } from "../types";
 
 export const NextJs: Framework = {
-  websiteTypes: [WebsiteType.Hybrid],
-  appTypes: [AppType.Spa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Hybrid, WebsiteType.Dynamic, WebsiteType.Static],
+  appTypesInOrderOfPriority: [AppType.Spa, AppType.Mpa],
   features: {
     typescript: true,
     hasCli: true,

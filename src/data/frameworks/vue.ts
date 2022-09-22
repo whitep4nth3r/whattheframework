@@ -1,8 +1,8 @@
 import { Framework, WebsiteType, AppType } from "../types";
 
 export const Vue: Framework = {
-  websiteTypes: [WebsiteType.Dynamic],
-  appTypes: [AppType.Spa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Dynamic],
+  appTypesInOrderOfPriority: [AppType.Spa],
   features: {
     typescript: true,
     hasCli: true,

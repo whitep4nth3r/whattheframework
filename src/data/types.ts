@@ -15,12 +15,12 @@ export type TemplatingEngine = {
   };
 };
 
-//TODO — add edge rendering support
-//TODO - add ecosystem integrations
+// TODO — add edge rendering support
+// TODO - add ecosystem integrations
 
 export type Framework = {
-  websiteTypes: WebsiteType[];
-  appTypes: AppType[];
+  websiteTypesInOrderOfPriority: WebsiteType[];
+  appTypesInOrderOfPriority: AppType[];
   features: {
     typescript: boolean;
     hasCli: boolean;

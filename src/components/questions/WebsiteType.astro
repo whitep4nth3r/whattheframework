@@ -1,31 +1,7 @@
 ---
 import { WebsiteType } from "../../data/types";
+import { SupportingInfo } from "../../data/supporting-info";
 const types = Object.values(WebsiteType).map((value) => value);
-
-const supportingInfo: any = {
-  [WebsiteType.Static]: {
-    heading: "Static site",
-    details: "A content-based website that provides the same content and experience on every visit.",
-    examples: ["blog", "marketing site", "documentation"],
-  },
-  [WebsiteType.Hybrid]: {
-    heading: "Flexible site",
-    details:
-      "A website that may have some static pages, but may also need to cater for unique content on visits to certain pages.",
-    examples: ["ecommerce", "news", "learning platforms", "bulletin boards"],
-  },
-  [WebsiteType.Dynamic]: {
-    heading: "Dynamic site",
-    details: "A website that can provide different content and experiences on each page view.",
-    examples: ["social media", "forum", "video streaming service"],
-  },
-};
-
-// Static - the majority of users interact with pre-built pages/ files.
-
-// Flexible - the user interactions are split between unchanging pages and pages that change with user actions
-
-// Dynamic - the majority of users interact with pages that change frequently, often in reaction to the users doing something.
 ---
 
 <style>
@@ -34,6 +10,7 @@ const supportingInfo: any = {
     margin-bottom: 1rem;
     display: block;
     padding: 0 1rem 1rem 1rem;
+    text-decoration: none;
   }
 
   .examples {
@@ -46,16 +23,13 @@ const supportingInfo: any = {
 <h1>What type of website are you building?</h1>
 {
   types.map((type) => (
-    <div class="choice">
-      <a href={type.toLowerCase()}>
-        <h3>{supportingInfo[type].heading}</h3>
-      </a>
-      <p>{supportingInfo[type].details}</p>
+    <a class="choice" href={type.toLowerCase()}>
+      <p>{SupportingInfo.websiteType[type].description}</p>
       <div class="examples">
-        {supportingInfo[type].examples.map((example: string) => (
+        {SupportingInfo.websiteType[type].examples.map((example: string) => (
           <small>{example}</small>
         ))}
       </div>
-    </div>
+    </a>
   ))
 }

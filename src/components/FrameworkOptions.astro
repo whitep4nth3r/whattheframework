@@ -16,7 +16,6 @@ const { options } = Astro.props;
 </style>
 
 <div>
-  <h2>Choose from these now!</h2>
   <ul class="options">
     {options?.map((option: Framework) => <FrameworkCard data={option} />)}
   </ul>

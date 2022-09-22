@@ -1,8 +1,8 @@
 import { Framework, WebsiteType, AppType } from "../types";
 
 export const Qwik: Framework = {
-  websiteTypes: [WebsiteType.Dynamic],
-  appTypes: [AppType.Mpa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Dynamic],
+  appTypesInOrderOfPriority: [AppType.Mpa],
   features: {
     typescript: true,
     hasCli: true,

@@ -4,8 +4,8 @@ import { Framework, WebsiteType, AppType } from "../types";
 //subframework — React
 
 export const Gatsby: Framework = {
-  websiteTypes: [WebsiteType.Static, WebsiteType.Hybrid],
-  appTypes: [AppType.Spa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Hybrid, WebsiteType.Static],
+  appTypesInOrderOfPriority: [AppType.Spa],
   features: {
     typescript: true,
     hasCli: true,

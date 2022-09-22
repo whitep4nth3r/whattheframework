@@ -6,8 +6,8 @@ import { Framework, WebsiteType, AppType } from "../types";
 // And would have a LOT of data in "features" and "ecosystemIntegrations"
 
 export const Blitz: Framework = {
-  websiteTypes: [WebsiteType.Hybrid, WebsiteType.Dynamic],
-  appTypes: [AppType.Spa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Dynamic, WebsiteType.Hybrid],
+  appTypesInOrderOfPriority: [AppType.Spa],
   features: {
     typescript: true,
     hasCli: true,

@@ -3,8 +3,8 @@ import { Framework, WebsiteType, AppType } from "../types";
 // subframework —
 
 export const SolidJs: Framework = {
-  websiteTypes: [WebsiteType.Dynamic],
-  appTypes: [AppType.Spa],
+  websiteTypesInOrderOfPriority: [WebsiteType.Dynamic],
+  appTypesInOrderOfPriority: [AppType.Spa],
   features: {
     typescript: true,
     hasCli: false,

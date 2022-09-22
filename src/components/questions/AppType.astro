@@ -5,7 +5,6 @@ const { websiteType } = params;
 import { SupportingInfo } from "../../data/supporting-info";
 
 const types = Object.values(AppType).map((value) => value);
-
 ---
 
 <style>
@@ -44,7 +43,6 @@ const types = Object.values(AppType).map((value) => value);
       <a href={`${websiteType}/${type.toLowerCase()}`}>
         <h3>{SupportingInfo.appType[type].answerToAppTypeQuestion}</h3>
       </a>
-      <!-- <p>{supportingInfo[type].details}</p> -->
       <div class="examples">
         <small>Things like:</small>
         {SupportingInfo.appType[type].examples.map((example: string) => (

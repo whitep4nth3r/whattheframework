@@ -13,6 +13,7 @@ const types = Object.values(AppType).map((value) => value);
     margin-bottom: 1rem;
     display: block;
     padding: 0 1rem 1rem 1rem;
+    text-decoration: none;
   }
 
   .examples {
@@ -39,16 +40,14 @@ const types = Object.values(AppType).map((value) => value);
 
 {
   types.map((type) => (
-    <div class="choice">
-      <a href={`${websiteType}/${type.toLowerCase()}`}>
-        <h3>{SupportingInfo.appType[type].answerToAppTypeQuestion}</h3>
-      </a>
+    <a class="choice" href={`${websiteType}/${type.toLowerCase()}`}>
+      <h3>{SupportingInfo.appType[type].answerToAppTypeQuestion}</h3>
       <div class="examples">
         <small>Things like:</small>
         {SupportingInfo.appType[type].examples.map((example: string) => (
           <small>{example}</small>
         ))}
       </div>
-    </div>
+    </a>
   ))
 }

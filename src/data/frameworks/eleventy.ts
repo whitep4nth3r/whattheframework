@@ -1,5 +1,5 @@
 import { Liquid } from "./../templating-engines/liquid";
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 
 /**
  * Technically, eleventy can do all website types with the intro of eleventy edge for SSR
@@ -11,10 +11,7 @@ import { Framework, WebsiteType, AppType } from "../types";
 export const Eleventy: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Static, WebsiteType.Hybrid],
   appTypesInOrderOfPriority: [AppType.Mpa],
-  features: {
-    typescript: true,
-    hasCli: true,
-  },
+  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
   usesFrameworks: [],
   templatingEngines: [Liquid],
   ecosystemIntegrations: [],

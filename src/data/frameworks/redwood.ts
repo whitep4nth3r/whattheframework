@@ -1,15 +1,12 @@
 import { React } from "./react";
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 
 // lots of ecosystem integrations in this one
 
 export const Redwood: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Dynamic, WebsiteType.Hybrid, WebsiteType.Static],
   appTypesInOrderOfPriority: [AppType.Mpa, AppType.Spa],
-  features: {
-    typescript: true,
-    hasCli: true,
-  },
+  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
   usesFrameworks: [React],
   templatingEngines: [],
   ecosystemIntegrations: [],

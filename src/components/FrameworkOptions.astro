@@ -2,7 +2,20 @@
 import type { Framework } from "../data/types";
 import FrameworkCard from "./FrameworkCard.astro";
 
-const { options } = Astro.props;
+const { options, allowFilter } = Astro.props;
+const featureFilters: string[] = [];
+
+/** 
+ * only show feature filters for the features present
+ * available frameworks
+ */
+options.forEach((opt: Framework) => {
+  opt.features.forEach((feat: string) => {
+    if (featureFilters.indexOf(feat) === -1) {
+      featureFilters.push(feat)
+    }
+  })
+})
 ---
 
 <style>
@@ -15,8 +28,75 @@ const { options } = Astro.props;
   }
 </style>
 
+<script>
+  const filterButtons = document.querySelectorAll("[data-filter]");
+  const frameworkCards = document.querySelectorAll("[data-card]");
+  const selectedFilters: string[] = [];
+
+  function toggleFilter(filter: string) {
+    const itemToRemoveIndex = selectedFilters.indexOf(filter);
+    
+    if(itemToRemoveIndex > -1) {
+      selectedFilters.splice(itemToRemoveIndex, 1)
+    } else {
+      selectedFilters.push(filter)
+    }
+
+    updateFrameworkList();
+  }
+
+  function showAllFrameworks() {    
+    for (let i = 0; i < frameworkCards.length; i++) { 
+      const domElement = frameworkCards[i] as HTMLElement;
+      domElement.style.display = "block";
+    };
+  };
+  
+  function updateFrameworkList() {
+    const frameworkCards = document.querySelectorAll("[data-card]");
+
+    if (selectedFilters.length === 0) {
+      showAllFrameworks();
+      return;
+    }
+
+    for (let i = 0; i < frameworkCards.length; i++) {
+      const domElement = frameworkCards[i] as HTMLElement;
+      const features: string | undefined = domElement.dataset.features;
+      const featuresArray = features?.split(",") ?? [];        
+        let match = 0;
+        featuresArray.forEach((feat: string) => {
+          
+          if (selectedFilters.includes(feat)) {                        
+            match++;
+          }
+        })
+        
+        domElement.style.display = selectedFilters.length === match ? "block" : "none";
+    }
+  }
+
+  filterButtons.forEach((button) =>
+    button.addEventListener("click", (event: Event) => {
+      toggleFilter((event?.target as HTMLInputElement).value as string);
+    }),
+  );
+</script>
+
+{allowFilter ?  
+  <p>Filter by</p>
+  <div>
+  {
+  featureFilters.map((feature) => (
+    <label for={feature}>{feature}</label>
+    <input type="checkbox" id={feature} value={feature} data-filter>
+    ))
+  }
+  </div>
+: ""}
+
 <div>
-  <ul class="options">
+  <ul class="options" data-list>
     {options?.map((option: Framework) => <FrameworkCard data={option} />)}
   </ul>
 </div>

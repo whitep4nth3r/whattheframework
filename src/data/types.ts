@@ -9,6 +9,13 @@ export enum AppType {
   Mpa = "mpa",
 }
 
+export enum FrameworkFeatures {
+  TypeScript = "typescript",
+  Cli = "cli",
+  Test = "test",
+  Yolo = "yolo",
+}
+
 export type TemplatingEngine = {
   meta: {
     name: string;
@@ -21,10 +28,7 @@ export type TemplatingEngine = {
 export type Framework = {
   websiteTypesInOrderOfPriority: WebsiteType[];
   appTypesInOrderOfPriority: AppType[];
-  features: {
-    typescript: boolean;
-    hasCli: boolean;
-  };
+  features: FrameworkFeatures[];
   usesFrameworks: Framework[];
   templatingEngines: TemplatingEngine[];
   ecosystemIntegrations: [];

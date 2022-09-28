@@ -1,15 +1,12 @@
 import { Angular } from "./angular";
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 
 //subframework — Angular
 
 export const AngularUniversal: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Static],
   appTypesInOrderOfPriority: [AppType.Spa],
-  features: {
-    typescript: true,
-    hasCli: true,
-  },
+  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
   usesFrameworks: [Angular],
   templatingEngines: [],
   ecosystemIntegrations: [],

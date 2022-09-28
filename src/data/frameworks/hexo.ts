@@ -1,12 +1,9 @@
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 
 export const Hexo: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Static],
   appTypesInOrderOfPriority: [AppType.Mpa],
-  features: {
-    typescript: false,
-    hasCli: true,
-  },
+  features: [FrameworkFeatures.Cli],
   usesFrameworks: [],
   templatingEngines: [],
   ecosystemIntegrations: [],

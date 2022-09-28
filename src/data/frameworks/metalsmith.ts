@@ -1,12 +1,9 @@
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 
 export const Metalsmith: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Static],
   appTypesInOrderOfPriority: [AppType.Mpa],
-  features: {
-    typescript: false,
-    hasCli: false,
-  },
+  features: [],
   usesFrameworks: [],
   templatingEngines: [],
   ecosystemIntegrations: [],

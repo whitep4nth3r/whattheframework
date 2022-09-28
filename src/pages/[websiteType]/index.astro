@@ -33,7 +33,7 @@ const otherPicks = shuffle(options.filter((option) => option.websiteTypesInOrder
   {params.websiteType !== WebsiteType.Static ? <AppType /> : ""}
 
   <h2>Top picks for {SupportingInfo.websiteType[params.websiteType as WebsiteType].name}s</h2>
-  <FrameworkOptions options={topPicks} />
+  <FrameworkOptions options={topPicks} allowFilter={true} />
 
   <h2>Other frameworks that may also suit this type of website</h2>
   <FrameworkOptions options={otherPicks} />

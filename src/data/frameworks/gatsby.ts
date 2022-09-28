@@ -1,15 +1,12 @@
 import { React } from "./react";
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 
 //subframework — React
 
 export const Gatsby: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Hybrid, WebsiteType.Static],
   appTypesInOrderOfPriority: [AppType.Spa],
-  features: {
-    typescript: true,
-    hasCli: true,
-  },
+  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
   usesFrameworks: [React],
   templatingEngines: [],
   ecosystemIntegrations: [],

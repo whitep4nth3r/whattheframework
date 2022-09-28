@@ -1,12 +1,9 @@
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 
 export const Preact: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Dynamic],
   appTypesInOrderOfPriority: [AppType.Spa],
-  features: {
-    typescript: true,
-    hasCli: true,
-  },
+  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
   usesFrameworks: [],
   templatingEngines: [],
   ecosystemIntegrations: [],

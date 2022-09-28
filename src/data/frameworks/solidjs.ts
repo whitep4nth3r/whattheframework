@@ -1,14 +1,11 @@
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 
 // subframework —
 
 export const SolidJs: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Dynamic],
   appTypesInOrderOfPriority: [AppType.Spa],
-  features: {
-    typescript: true,
-    hasCli: false,
-  },
+  features: [FrameworkFeatures.TypeScript],
   usesFrameworks: [],
   templatingEngines: [],
   ecosystemIntegrations: [],

@@ -33,7 +33,7 @@ const otherPicks = shuffle(options.filter((option) => option.appTypesInOrderOfPr
     Top picks for {SupportingInfo.appType[params.appType as AppType].name}
     {SupportingInfo.websiteType[params.websiteType as WebsiteType].name}s
   </h2>
-  <FrameworkOptions options={topPicks} />
+  <FrameworkOptions options={topPicks} allowFilter={true} />
 
   <h2>Other frameworks that may also suit this type of website</h2>
   <FrameworkOptions options={otherPicks} />

@@ -1,6 +1,6 @@
 import { NextJs } from "./nextjs";
 import { React } from "./react";
-import { Framework, WebsiteType, AppType } from "../types";
+import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 
 // THIS IS BIG
 // And would have a LOT of data in "features" and "ecosystemIntegrations"
@@ -8,10 +8,7 @@ import { Framework, WebsiteType, AppType } from "../types";
 export const Blitz: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Dynamic, WebsiteType.Hybrid],
   appTypesInOrderOfPriority: [AppType.Spa],
-  features: {
-    typescript: true,
-    hasCli: true,
-  },
+  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
   usesFrameworks: [React, NextJs],
   templatingEngines: [],
   ecosystemIntegrations: [],

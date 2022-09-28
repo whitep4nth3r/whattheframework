@@ -1,6 +1,5 @@
 ---
 import type { Framework } from "../data/types";
-
 const { data } = Astro.props;
 ---
 
@@ -32,24 +31,22 @@ const { data } = Astro.props;
   }
 </style>
 
-<li class="framework">
+<li class="framework" data-card data-features={data.features.map((feat: string) => feat).join(",")}>
   <div class="logo">
     <img src={`https://github.com/${data.meta.githubOrg}.png`} alt={data.meta.name} loading="lazy" />
   </div>
   <h2>{data.meta.name}</h2>
 
-  <dl>
-    <dt>TypeScript support</dt>
-    <dd>{data.features.typescript ? "Yes" : "No"}</dd>
-    <dt>Has CLI</dt>
-    <dd>{data.features.hasCli ? "Yes" : "No"}</dd>
+  <ul>
+    {data.features.map((feature: string) => <span>{feature} </span>)}
     {data.usesFrameworks.length > 0 ?
-      (<dt>Uses frameworks</dt><dd>{data.usesFrameworks.map((fw: Framework) => <span>{fw.meta.name}</span>)}</dd>) : ""
+      (<p>Uses frameworks</p>
+      <span>{data.usesFrameworks.map((fw: Framework) => <span>{fw.meta.name} </span>)}</span>) : ""
     }
      {data.templatingEngines.length > 0 ?
-      (<dt>Templating engines</dt><dd>{data.templatingEngines.map((te: Framework) => <span>{te.meta.name}</span>)}</dd>) : ""
+      (<p>Templating engines</p><span>{data.templatingEngines.map((te: Framework) => <span>{te.meta.name} </span>)}</span>) : ""
     }
-  </dl>
+  </ul>
 
   <a href={data.meta.docsLink} target="_blank">Docs</a>
   <a href={`https://github.com/${data.meta.githubOrg}/${data.meta.githubRepo}`} target="_blank">GitHub</a>

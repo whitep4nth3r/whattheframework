@@ -5,9 +5,21 @@ const { data } = Astro.props;
 
 <style>
   .framework {
-    border: 2px solid grey;
-    margin-bottom: 1rem;
-    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    background: var(--card-bg);
+    backdrop-filter: blur(1.25rem);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-decoration: none;
+    color: var(--card-text-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: calc(32 / 24);
+    box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+    transition: all 0.42s ease-in-out;
   }
 
   a {
@@ -44,7 +56,7 @@ const { data } = Astro.props;
       (<p>Uses frameworks</p>
       <span>{data.usesFrameworks.map((fw: Framework) => <span>{fw.meta.name} </span>)}</span>) : ""
     }
-     {data.templatingEngines.length > 0 ?
+      {data.templatingEngines.length > 0 ?
       (<p>Templating engines</p><span>{data.templatingEngines.map((te: Framework) => <span>{te.meta.name} </span>)}</span>) : ""
     }
   </ul>

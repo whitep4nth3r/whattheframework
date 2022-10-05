@@ -21,12 +21,10 @@ options.forEach((opt: Framework) => {
 ---
 
 <style>
-  .options {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-left: 0;
-    gap: 1rem;
+  @media screen and (min-width: 50rem) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>
 
@@ -99,7 +97,7 @@ options.forEach((opt: Framework) => {
 : ""}
 
 <div>
-  <ul class="options" data-list>
+  <ul class="grid" data-list>
     {options?.map((option: Framework) => <FrameworkCard data={option} />)}
   </ul>
 </div>

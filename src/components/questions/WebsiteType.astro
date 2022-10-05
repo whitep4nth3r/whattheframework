@@ -5,32 +5,26 @@ const types = Object.values(WebsiteType).map((value) => value);
 ---
 
 <style>
-  .choice {
-    border: 1px solid green;
-    margin-bottom: 1rem;
-    display: block;
-    padding: 0 1rem 1rem 1rem;
-    text-decoration: none;
-    background: white;
-  }
-
-  .examples {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
+  @media screen and (min-width: 50rem) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>
 
 <h1>What type of website are you building?</h1>
-{
-  types.map((type) => (
-    <a class="choice" href={type.toLowerCase()}>
-      <p>{SupportingInfo.websiteType[type].description}</p>
-      <div class="examples">
-        {SupportingInfo.websiteType[type].examples.map((example: string) => (
-          <small>{example}</small>
-        ))}
-      </div>
-    </a>
-  ))
-}
+
+<div class="grid">
+  {
+    types.map((type) => (
+      <a class="card" href={type.toLowerCase()}>
+        <p>{SupportingInfo.websiteType[type].description}</p>
+        <div class="card__examples">
+          {SupportingInfo.websiteType[type].examples.map((example: string) => (
+            <small class="card__examplesPill">{example}</small>
+          ))}
+        </div>
+      </a>
+    ))
+  }
+</div>

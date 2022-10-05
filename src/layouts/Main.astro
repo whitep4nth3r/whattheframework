@@ -1,10 +1,7 @@
 ---
 ---
 
-<style is:global lang="scss">
-  @use "sass:list";
-  @use "sass:string";
-
+<style is:global>
   :root {
     --black: #1b1b1b;
     --rainbow1: #ffd20e;
@@ -23,36 +20,9 @@
     --rainbow14: #00b8d9;
   }
 
-  // @function build-gradient() {
-  //   $gradient-stops: (
-  //     #ffd20e,
-  //     #e5bc08,
-  //     #ec8401,
-  //     #e65c04,
-  //     #e52e06,
-  //     #de006b,
-  //     #ca039e,
-  //     #a203cb,
-  //     #6d01c9,
-  //     #22008f,
-  //     #062f9a,
-  //     #0045ac,
-  //     #007db2,
-  //     #00b8d9
-  //   );
-
-  //   $stop-size: 100% / 14;
-  //   $gradient-string: "#{list.nth($gradient-stops, 0)} #{$stop-size}";
-
-  //   @each $stop in $gradient-stops {
-  //     str-insert($gradient-string, "test", 10000);
-  //   }
-
-  //   @return linear-gradient(to bottom, $gradient-string);
-  // }
-
   * {
     box-sizing: border-box;
+    margin: 0;
   }
 
   html {
@@ -60,10 +30,76 @@
   }
 
   body {
-    --stop-size: 100% / 14;
     font-size: 1rem;
     margin: 0;
-    min-height: 100vmin;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    background: radial-gradient(73.46% 87.33% at 0% 0%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(125deg, rgba(255, 255, 255, 0.8) 0%, rgba(229, 217, 236, 0.8) 100%);
+    backdrop-filter: blur(1.25rem);
+    border-radius: 2rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--black);
+    font-size: 1.5rem;
+    line-height: calc(32 / 24);
+  }
+
+  @media screen and (min-width: 50rem) {
+    .card {
+      min-height: 25rem;
+    }
+  }
+
+  .card__examples {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .card__examplesPill {
+    padding: 0.25rem 0.75rem;
+    background: #f2f4f7;
+    mix-blend-mode: multiply;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    line-height: 100%;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+    max-width: 1184px;
+  }
+</style>
+
+<style>
+  :root {
+    --header-height: 6.25rem;
+  }
+
+  header {
+    background-color: var(--black);
+    margin: 0;
+    height: var(--header-height);
+  }
+
+  main {
+    --stop-size: calc(100vh - var(--header-height)) / 14;
+    min-height: calc(100vh - var(--header-height));
     background-repeat: no-repeat;
     background: linear-gradient(
       to bottom,
@@ -80,13 +116,8 @@
       var(--rainbow11) calc((var(--stop-size)) * 10) calc((var(--stop-size)) * 11),
       var(--rainbow12) calc((var(--stop-size)) * 11) calc((var(--stop-size)) * 12),
       var(--rainbow13) calc((var(--stop-size)) * 12) calc((var(--stop-size)) * 13),
-      var(--rainbow14) calc((var(--stop-size)) * 13) 100%
+      var(--rainbow14) calc((var(--stop-size)) * 13) calc((var(--stop-size)) * 14)
     );
-  }
-</style>
-
-<style>
-  main {
   }
 </style>
 
@@ -97,8 +128,10 @@
 <title>What the Framework?</title>
 
 <body>
-  <header><p>what the framework?</p></header>
+  <header>what the framework?</header>
   <main>
-    <slot />
+    <div class="wrapper">
+      <slot />
+    </div>
   </main>
 </body>

@@ -1,0 +1,69 @@
+---
+const { answer, href, examples, stretchCard } = Astro.props;
+---
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    background: var(--card-bg);
+    backdrop-filter: blur(1.25rem);
+    border-radius: 2rem;
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--card-text-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: calc(32 / 24);
+    box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+    transition: all 0.42s ease-in-out;
+  }
+
+  .card:focus,
+  .card:active {
+    outline: transparent;
+    box-shadow: var(--card-focus-shadow);
+  }
+
+  .card__examples {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .card__examplesTitle {
+    color: var(--card-text-color);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+  .card__examplesPill {
+    padding: 0.25rem 0.75rem;
+    background: var(--card-pill-bg);
+    mix-blend-mode: var(--card-pill-mix-blend-mode);
+    color: var(--card-text-color);
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    line-height: 1;
+  }
+
+  @media screen and (min-width: 50rem) {
+    .card--stretch {
+      min-height: 25rem;
+    }
+  }
+</style>
+
+<a class={`card ${stretchCard ? "card--stretch" : ""}`} href={href}>
+  <p>{answer}</p>
+  <div>
+    <p class="card__examplesTitle">Things like:</p>
+    <div class="card__examples">
+      {examples.map((example: string) => <small class="card__examplesPill">{example}</small>)}
+    </div>
+  </div>
+</a>

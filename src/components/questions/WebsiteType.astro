@@ -1,6 +1,7 @@
 ---
 import { WebsiteType } from "../../data/types";
 import { SupportingInfo } from "../../data/supporting-info";
+import AnswerCard from "../AnswerCard.astro";
 const types = Object.values(WebsiteType).map((value) => value);
 ---
 
@@ -17,14 +18,12 @@ const types = Object.values(WebsiteType).map((value) => value);
 <div class="grid">
   {
     types.map((type) => (
-      <a class="card" href={type.toLowerCase()}>
-        <p>{SupportingInfo.websiteType[type].description}</p>
-        <div class="card__examples">
-          {SupportingInfo.websiteType[type].examples.map((example: string) => (
-            <small class="card__examplesPill">{example}</small>
-          ))}
-        </div>
-      </a>
+      <AnswerCard
+        href={type.toLowerCase()}
+        answer={SupportingInfo.websiteType[type].description}
+        examples={SupportingInfo.websiteType[type].examples}
+        stretchCard={true}
+      />
     ))
   }
 </div>

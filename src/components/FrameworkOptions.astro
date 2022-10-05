@@ -2,6 +2,8 @@
 import type { Framework } from "../data/types";
 import FrameworkCard from "./FrameworkCard.astro";
 
+
+
 const { options, allowFilter } = Astro.props;
 const featureFilters: string[] = [];
 
@@ -28,6 +30,7 @@ options.forEach((opt: Framework) => {
   }
 </style>
 
+<!-- todo - check if this is being bundled and output x 2 because of the way the framework options works (e.g. we're showing two components with different options) -->
 <script>
   const filterButtons = document.querySelectorAll("[data-filter]");
   const frameworkCards = document.querySelectorAll("[data-card]");

@@ -4,7 +4,7 @@ import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 export const NextJs: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Hybrid, WebsiteType.Dynamic, WebsiteType.Static],
   appTypesInOrderOfPriority: [AppType.Spa, AppType.Mpa],
-  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
+  features: [FrameworkFeatures.Cli, FrameworkFeatures.TypeScript],
   usesFrameworks: [React],
   templatingEngines: [],
   ecosystemIntegrations: [],

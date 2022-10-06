@@ -8,7 +8,7 @@ import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 export const Blitz: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Dynamic, WebsiteType.Hybrid],
   appTypesInOrderOfPriority: [AppType.Spa],
-  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
+  features: [FrameworkFeatures.Cli, FrameworkFeatures.TypeScript],
   usesFrameworks: [React, NextJs],
   templatingEngines: [],
   ecosystemIntegrations: [],

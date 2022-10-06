@@ -4,7 +4,7 @@ import { React } from "./react";
 export const Docusaurus: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Static],
   appTypesInOrderOfPriority: [AppType.Spa],
-  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
+  features: [FrameworkFeatures.Cli, FrameworkFeatures.TypeScript],
   usesFrameworks: [React],
   templatingEngines: [],
   ecosystemIntegrations: [],

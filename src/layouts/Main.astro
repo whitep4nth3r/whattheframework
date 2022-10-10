@@ -81,12 +81,15 @@
       }
 
       .header__link {
-        max-width: 100%;
         z-index: 10;
         position: relative;
         display: inline-block;
         transition: all 0.42s ease-in-out;
         border-radius: 1rem;
+      }
+
+      .header__logo {
+        max-width: 100%;
       }
 
       .header__link:focus {
@@ -118,7 +121,7 @@
       }
 
       .wrapper {
-        padding: 8rem 0;
+        padding: 5rem 0;
         margin: 0 auto;
         height: calc(100vh - var(--header-height));
         overflow-y: scroll;
@@ -138,7 +141,7 @@
   <body>
     <header class="header">
       <a href="/" title="Navigate to homepage" class="header__link">
-        <img class="header__logo" src="/img/logo.png" alt="What the Framework" />
+        <img class="header__logo" src="/img/logo.svg" alt="What the Framework" />
       </a>
     </header>
     <main>

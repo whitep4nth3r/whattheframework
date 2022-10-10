@@ -1,6 +1,7 @@
 ---
 import { AppType } from "../../data/types";
 import AnswerCard from "../AnswerCard.astro";
+import QuestionCard from "./QuestionCard.astro";
 import { SupportingInfo } from "../../data/supporting-info";
 
 const { params } = Astro;
@@ -21,7 +22,7 @@ const types = Object.values(AppType).map((value) => value);
   }
 </style>
 
-<h1>Do you need your website to maintain state across multiple pages?</h1>
+<QuestionCard question={`Do you need your website to maintain state across multiple pages?`} />
 
 <div class="grid">
   {

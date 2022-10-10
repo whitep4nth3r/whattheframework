@@ -72,12 +72,26 @@
         --header-height: 6.25rem;
       }
 
-      header {
+      .header {
         background-color: var(--black);
         margin: 0;
         height: var(--header-height);
         color: var(--offwhite);
         padding: 1rem;
+      }
+
+      .header__link {
+        max-width: 100%;
+        z-index: 10;
+        position: relative;
+        display: inline-block;
+        transition: all 0.42s ease-in-out;
+        border-radius: 1rem;
+      }
+
+      .header__link:focus {
+        outline: transparent;
+        box-shadow: var(--card-focus-shadow);
       }
 
       main {
@@ -104,6 +118,7 @@
       }
 
       .wrapper {
+        padding: 8rem 0;
         margin: 0 auto;
         height: calc(100vh - var(--header-height));
         overflow-y: scroll;
@@ -121,7 +136,11 @@
   </head>
 
   <body>
-    <header>WTF?! What the framework?</header>
+    <header class="header">
+      <a href="/" title="Navigate to homepage" class="header__link">
+        <img class="header__logo" src="/img/logo.png" alt="What the Framework" />
+      </a>
+    </header>
     <main>
       <div class="wrapper">
         <slot />

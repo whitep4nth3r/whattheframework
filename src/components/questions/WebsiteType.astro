@@ -2,6 +2,7 @@
 import { WebsiteType } from "../../data/types";
 import { SupportingInfo } from "../../data/supporting-info";
 import AnswerCard from "../AnswerCard.astro";
+import QuestionCard from "./QuestionCard.astro";
 const types = Object.values(WebsiteType).map((value) => value);
 ---
 
@@ -13,7 +14,7 @@ const types = Object.values(WebsiteType).map((value) => value);
   }
 </style>
 
-<h1>What type of website are you building?</h1>
+<QuestionCard question={`What type of website are you building?`} />
 
 <div class="grid">
   {

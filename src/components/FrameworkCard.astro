@@ -1,53 +1,44 @@
 ---
+import AstroIcon, { Icon } from "astro-icon";
 import type { Framework } from "../data/types";
 const { data } = Astro.props;
 ---
 
-<style>
-  .framework {
-    border: 2px solid grey;
-    margin-bottom: 1rem;
-  }
 
-  a {
-    display: block;
-  }
-
-  li {
-    list-style: none;
-    padding: 0 0.5rem 0.5rem 0.5rem;
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-  }
-
-  .logo {
-    height: 4rem;
-    aspect-ratio: 1/1;
-  }
-
-  .logo img {
-    height: 100%;
-  }
-</style>
-
-<li class="framework" data-card data-features={data.features.map((feat: string) => feat).join(",")}>
-  <div class="logo">
-    <img src={`https://github.com/${data.meta.githubOrg}.png`} alt={data.meta.name} loading="lazy" />
+<li class="col-span-1 pt-4 px-4 max-w-sm flex flex-col justify-between rounded-lg shadow-md bg-gray-100 dark:bg-gray-800" data-card data-features={data.features.map((feat: string) => feat).join(",")}>
+  <div class="p-8">
+    <div class="h-16 aspect-square mx-auto p-4">
+      <img src={`https://github.com/${data.meta.githubOrg}.png`} alt={data.meta.name} loading="lazy" />
+    </div>
+    <h2 class="text-xl text-center ">{data.meta.name}</h2>
   </div>
-  <h2>{data.meta.name}</h2>
 
-  <ul>
-    {data.features.map((feature: string) => <span>{feature} </span>)}
+  <ul class="text-base text-center mb-4 ">
+    <div class="my-2">
+      {data.features.map((feature: string) => 
+        <span class="px-4 py-2 m-2 text-xs border border-gray-300 dark:border-gray-700 rounded-2xl" >{feature} </span>
+      )}
+    </div>
     {data.usesFrameworks.length > 0 ?
-      (<p>Uses frameworks</p>
-      <span>{data.usesFrameworks.map((fw: Framework) => <span>{fw.meta.name} </span>)}</span>) : ""
+      (
+        <p class="text-xs p-2">Uses frameworks</p>
+        <span class="text-lg font-bold">{data.usesFrameworks.map((fw: Framework) => <span>{fw.meta.name} </span>
+      )}</span>) : ""
     }
      {data.templatingEngines.length > 0 ?
-      (<p>Templating engines</p><span>{data.templatingEngines.map((te: Framework) => <span>{te.meta.name} </span>)}</span>) : ""
+      (<p class="text-xs p-2">Templating engines</p><span class="text-lg font-bold">{data.templatingEngines.map((te: Framework) => <span>{te.meta.name} </span>)}</span>) : ""
     }
   </ul>
 
-  <a href={data.meta.docsLink} target="_blank">Docs</a>
-  <a href={`https://github.com/${data.meta.githubOrg}/${data.meta.githubRepo}`} target="_blank">GitHub</a>
+  <div class="flex flex-row justify-around items-center uppercase tracking-wide p-2">
+      <a href={data.meta.docsLink} target="_blank" class=" flex flex-row gap-2 items-center ">
+        <Icon name="carbon:document" class="h-4 text-gray-900 dark:text-gray-100"/>
+        Docs
+      </a>
+      <a href={`https://github.com/${data.meta.githubOrg}/${data.meta.githubRepo}`} target="_blank" class="flex flex-row gap-2 items-center">
+        <Icon name="teenyicons:github-outline" class="h-4 text-gray-900 dark:text-gray-100"/>
+        github
+      </a>
+
+  </div>
 </li>

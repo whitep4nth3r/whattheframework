@@ -18,15 +18,6 @@ options.forEach((opt: Framework) => {
 })
 ---
 
-<style>
-  .options {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-left: 0;
-    gap: 1rem;
-  }
-</style>
 
 <script>
   const filterButtons = document.querySelectorAll("[data-filter]");
@@ -84,7 +75,7 @@ options.forEach((opt: Framework) => {
 </script>
 
 {allowFilter ?  
-  <p>Filter by</p>
+  <p class="text-lg uppercase tracking-wider m-4">Filter by</p>
   <div>
   {
   featureFilters.map((feature) => (
@@ -95,8 +86,8 @@ options.forEach((opt: Framework) => {
   </div>
 : ""}
 
-<div>
-  <ul class="options" data-list>
+<div class="w-10/12 mx-auto">
+  <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 " data-list>
     {options?.map((option: Framework) => <FrameworkCard data={option} />)}
   </ul>
 </div>

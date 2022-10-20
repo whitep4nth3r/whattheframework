@@ -15,30 +15,55 @@ if (!Validator.websiteType(params.websiteType)) {
   return Astro.redirect("/");
 }
 
-const options = FrameworkSelector({ websiteType: params.websiteType, appType: params.appType });
+const options = FrameworkSelector({
+  websiteType: params.websiteType,
+  appType: params.appType,
+});
 
-const topPicks = shuffle(options.filter((option) => option.websiteTypesInOrderOfPriority[0] === params.websiteType));
+const topPicks = shuffle(
+  options.filter(
+    (option) => option.websiteTypesInOrderOfPriority[0] === params.websiteType
+  )
+);
 
-const otherPicks = shuffle(options.filter((option) => option.websiteTypesInOrderOfPriority[0] !== params.websiteType));
+const otherPicks = shuffle(
+  options.filter(
+    (option) => option.websiteTypesInOrderOfPriority[0] !== params.websiteType
+  )
+);
 ---
 
 <Main>
-  <h1>
-    Your website is most probably a {SupportingInfo.websiteType[params.websiteType as WebsiteType].name}
-  </h1>
-  <h2>made up of {SupportingInfo.websiteType[params.websiteType as WebsiteType].technology}</h2>
+  <section class="container py-24 mx-auto">
+    <h1 class="text-3xl text-center p-4">
+      Your website is most probably a {
+        SupportingInfo.websiteType[params.websiteType as WebsiteType].name
+      }
+    </h1>
+    <h2 class="text-lg text-center mb-8">
+      made up of {
+        SupportingInfo.websiteType[params.websiteType as WebsiteType].technology
+      }
+    </h2>
 
-  <hr />
+    <hr />
 
-  {params.websiteType !== WebsiteType.Static ? <AppType /> : ""}
+    {params.websiteType !== WebsiteType.Static ? <AppType /> : ""}
 
-  <h2>Top picks for {SupportingInfo.websiteType[params.websiteType as WebsiteType].name}s</h2>
-  <FrameworkOptions options={topPicks} allowFilter={true} />
+    <h2 class="text-xl font-bold text-start p-4">
+      Top picks for {
+        SupportingInfo.websiteType[params.websiteType as WebsiteType].name
+      }s
+    </h2>
+    <FrameworkOptions options={topPicks} allowFilter={true} />
 
-  <h2>Other frameworks that may also suit this type of website</h2>
-  <FrameworkOptions options={otherPicks} />
+    <h2 class="text-xl font-bold text-start p-4">
+      Other frameworks that may also suit this type of website
+    </h2>
+    <FrameworkOptions options={otherPicks} />
 
-  <div style="margin-top: 100px;">
-    <StartOver />
-  </div>
+    <div class="mt-16">
+      <StartOver />
+    </div>
+  </section>
 </Main>

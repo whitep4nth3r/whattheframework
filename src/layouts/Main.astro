@@ -1,36 +1,52 @@
 ---
+import Header from "../components/Header.astro";
 ---
 
-<style is:global>
-  * {
-    box-sizing: border-box;
-  }
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
 
-  html {
-    font-size: 100%;
-  }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap"
+      rel="stylesheet"
+    />
 
-  body {
-    font-size: 1rem;
-  }
-</style>
+    <!--Initialize Theme -->
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
 
-<style>
-  main {
-    max-width: 700px;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-  }
-</style>
+      // Whenever the user explicitly chooses light mode
+      localStorage.theme = "light";
 
-<meta charset="utf-8" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="viewport" content="width=device-width" />
-<meta name="generator" content={Astro.generator} />
-<title>What the Framework?</title>
+      // Whenever the user explicitly chooses dark mode
+      localStorage.theme = "dark";
 
-<body>
-  <main>
+      // Whenever the user explicitly chooses to respect the OS preference
+      localStorage.removeItem("theme");
+    </script>
+
+    <title>What the Framework?</title>
+  </head>
+  <body
+    class="h-full font-sans text-base bg-slate-200 dark:bg-slate-900 text-slate-900 dark:text-slate-50 transition-colors duration-300 ease-linear"
+  >
+    <Header />
     <slot />
-  </main>
-</body>
+  </body>
+</html>

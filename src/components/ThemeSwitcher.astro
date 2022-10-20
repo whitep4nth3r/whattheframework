@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<button
+  id="theme-switcher"
+  type="button"
+  class="rounded-full group focus:bg-slate-500/50 hover:bg-slate-500/50 p-2"
+>
+  <div
+    id="icon-theme-light"
+    class="hidden dark:block group-active:animate-spin"
+  >
+    <Icon name="carbon:light-filled" class="h-8 text-slate-100" />
+    <span class="sr-only">Use light theme</span>
+  </div>
+  <div id="icon-theme-dark" class="dark:hidden group-active:animate-spin">
+    <Icon name="carbon:light" class="h-8" />
+    <span class="sr-only">Use dark theme</span>
+  </div>
+</button>
+
+<script>
+  const button = document.getElementById("theme-switcher");
+
+  const isDark = () => document.documentElement.classList.contains("dark");
+
+  button?.addEventListener("click", () => {
+    if (isDark()) {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    }
+  });
+</script>

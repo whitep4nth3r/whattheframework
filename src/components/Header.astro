@@ -1,0 +1,28 @@
+---
+import Icon from "astro-icon";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+---
+
+<header class="h-1/4 bg-slate-200 dark:bg-slate-800">
+  <nav class="w-full px-8 sm:px-16 py-2 bg-transparent">
+    <div class="flex justify-end gap-4">
+      <ThemeSwitcher />
+
+      <a
+        href="https://github.com/whitep4nth3r/whattheframework"
+        target="_blank"
+        rel="noopener nofollow"
+        class="rounded-full group focus:bg-slate-500/50 hover:bg-slate-500/50 p-2"
+      >
+        <Icon
+          name="mdi:github"
+          class="h-8 text-slate-900 dark:text-slate-100"
+        />
+      </a>
+    </div>
+  </nav>
+
+  <h1 class="font-display text-5xl text-center tracking-wider">
+    Wahat the Framework
+  </h1>
+</header>

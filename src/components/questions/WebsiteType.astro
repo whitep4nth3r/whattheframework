@@ -4,28 +4,15 @@ import { SupportingInfo } from "../../data/supporting-info";
 const types = Object.values(WebsiteType).map((value) => value);
 ---
 
-<style>
-  .choice {
-    border: 1px solid green;
-    margin-bottom: 1rem;
-    display: block;
-    padding: 0 1rem 1rem 1rem;
-    text-decoration: none;
-  }
-
-  .examples {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-</style>
-
-<h1>What type of website are you building?</h1>
+<h1 class="text-3xl m-8 text-center">What type of website are you building?</h1>
 {
   types.map((type) => (
-    <a class="choice" href={type.toLowerCase()}>
-      <p>{SupportingInfo.websiteType[type].description}</p>
-      <div class="examples">
+    <a
+      class="block m-4 mx-auto bg-slate-100 dark:bg-slate-800 shadow-md rounded-md w-10/12 sm:w-8/12"
+      href={type.toLowerCase()}
+    >
+      <p class="text-xl p-4">{SupportingInfo.websiteType[type].description}</p>
+      <div class="flex gap-4 p-4">
         {SupportingInfo.websiteType[type].examples.map((example: string) => (
           <small>{example}</small>
         ))}

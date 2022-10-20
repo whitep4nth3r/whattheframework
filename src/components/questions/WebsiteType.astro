@@ -5,18 +5,24 @@ const types = Object.values(WebsiteType).map((value) => value);
 ---
 
 <h1 class="text-3xl m-8 text-center">What type of website are you building?</h1>
-{
-  types.map((type) => (
-    <a
-      class="block m-4 mx-auto bg-slate-100 dark:bg-slate-800 shadow-md rounded-md w-10/12 sm:w-8/12"
-      href={type.toLowerCase()}
-    >
-      <p class="text-xl p-4">{SupportingInfo.websiteType[type].description}</p>
-      <div class="flex gap-4 p-4">
-        {SupportingInfo.websiteType[type].examples.map((example: string) => (
-          <small>{example}</small>
-        ))}
-      </div>
-    </a>
-  ))
-}
+<div class="container mx-auto w-11/12 grid md:grid-cols-3 gap-4">
+  {
+    types.map((type) => (
+      <a
+        class="col-span-1 p-4 bg-slate-100 dark:bg-slate-800 shadow-md rounded-lg"
+        href={type.toLowerCase()}
+      >
+        <div class="mb-8">
+          <p class="text-lg ">{SupportingInfo.websiteType[type].description}</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {SupportingInfo.websiteType[type].examples.map((example: string) => (
+            <span class="border border-slate-800 dark:border-slate-200 rounded-2xl">
+              <small class="text-xs p-4">{example}</small>
+            </span>
+          ))}
+        </div>
+      </a>
+    ))
+  }
+</div>

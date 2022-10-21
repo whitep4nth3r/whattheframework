@@ -4,8 +4,8 @@ import { SupportingInfo } from "../../data/supporting-info";
 const types = Object.values(WebsiteType).map((value) => value);
 ---
 
-<h1 class="text-3xl text-center">What type of website are you building?</h1>
-<div class="container mx-auto w-11/12 grid md:grid-cols-3 gap-8">
+<h1 class="text-3xl text-center m-8">What type of website are you building?</h1>
+<div class="container mx-auto w-11/12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
   {
     types.map((type) => (
       <a

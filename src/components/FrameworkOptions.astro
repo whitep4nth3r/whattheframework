@@ -1,4 +1,5 @@
 ---
+import Icon from "astro-icon";
 import type { Framework } from "../data/types";
 import FrameworkCard from "./FrameworkCard.astro";
 
@@ -75,14 +76,19 @@ options.forEach((opt: Framework) => {
 </script>
 
 {allowFilter ?  
-  <p class="text-lg uppercase tracking-wider m-4">Filter by</p>
-  <div>
-  {
-  featureFilters.map((feature) => (
-    <label for={feature}>{feature}</label>
-    <input type="checkbox" id={feature} value={feature} data-filter>
-    ))
-  }
+  <div class="m-8 flex flex-col items-end">
+    <p class="text-lg uppercase tracking-wider my-4 flex items-center gap-2">
+      Filter by
+      <Icon name="carbon:filter" class="h-8"/>
+      </p>
+    <div class="text-sm flex justify-end items-center gap-2">
+    {
+    featureFilters.map((feature) => (
+      <label for={feature} class="first-letter:uppercase" >{feature}</label>
+      <input type="checkbox" id={feature} value={feature} data-filter>
+      ))
+    }
+    </div>
   </div>
 : ""}
 

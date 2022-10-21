@@ -27,25 +27,38 @@ const types = Object.values(AppType).map((value) => value);
   }
 </style>
 
-<h1>Do you need your website to maintain state across multiple pages?</h1>
+<h1 class="my-8 text-center text-3xl">
+  Do you need your website to maintain state across multiple pages?
+</h1>
 
-{
-  types.map((type) => (
-    <a class="choice" href={`${websiteType}/${type.toLowerCase()}`}>
-      <h3>{SupportingInfo.appType[type].answerToAppTypeQuestion}</h3>
-      <div class="examples">
-        <small>Things like:</small>
-        {SupportingInfo.appType[type].examples.map((example: string) => (
-          <small>{example}</small>
-        ))}
-      </div>
-    </a>
-  ))
-}
+<div class="container my-8 mx-auto w-8/12 grid md:grid-cols-2 gap-8">
+  {
+    types.map((type) => (
+      <a
+        class="col-span-1 card-effects flex flex-col justify-around items-center p-4"
+        href={`${websiteType}/${type.toLowerCase()}`}
+      >
+        <h3 class="text-xl uppercase my-4">
+          {SupportingInfo.appType[type].answerToAppTypeQuestion}
+        </h3>
 
-<div class="details">
-  <h2>What is state?</h2>
-  <p>
+        <small class="text-base">Things like:</small>
+
+        <span class="m-4 flex flex-wrap gap-2">
+          {SupportingInfo.appType[type].examples.map((example: string) => (
+            <small class="text-xs px-4 py-1 rounded-3xl border border-gray-500 border-opacity-50">
+              {example}
+            </small>
+          ))}
+        </span>
+      </a>
+    ))
+  }
+</div>
+
+<div class="m-8 p-8 shadow-sm rounded-xl bg-gray-200 dark:bg-gray-800">
+  <h2 class="text-xl my-2">What is state?</h2>
+  <p class="text-base">
     State is what a thing is currently like. The current state of your house is
     made up of all the furniture, objects, animals, plants, and people inside
     it, and other environmental factors such as the temperature and whether you

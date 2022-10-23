@@ -3,7 +3,7 @@ import Icon from "astro-icon";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
 ---
 
-<header class="fixed top-0 bottom-auto w-full z-10">
+<header class="absolute top-0 bottom-auto w-full z-10">
   <nav class="w-full px-8 sm:px-16 py-2 bg-transparent">
     <div class="flex justify-end gap-4">
       <ThemeSwitcher />
@@ -15,7 +15,7 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
         class="rounded-full group focus:bg-slate-500/50 hover:bg-slate-500/50 p-2"
       >
         <Icon
-          name="teenyicons:github-outline"
+          name="mdi:github"
           class="h-8 text-slate-900 dark:text-slate-100"
         />
       </a>

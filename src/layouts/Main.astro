@@ -44,17 +44,17 @@ import Header from "../components/Header.astro";
     <title>What the Framework?</title>
   </head>
   <body
-    class="h-full font-sans text-base bg-gray-300 dark:bg-gray-900 text-gray-900 dark:text-gray-50 transition-colors duration-300 ease-linear"
+    class="relative h-full font-sans text-base bg-gray-300 dark:bg-gray-900 text-gray-900 dark:text-gray-50 transition-colors duration-300 ease-linear"
   >
     <Header />
     <slot />
     <style is:global>
-      .card-effects {
-        @apply bg-gray-200 dark:bg-gray-800 
-        shadow-md hover:shadow-2xl rounded-xl
-        hover:bg-gray-100 dark:hover:bg-gray-700
-        border dark:border-none
-        hover:border-4 border-gray-500 border-opacity-50
+      .card {
+        @apply bg-gray-100 dark:bg-gray-800 rounded-xl
+        shadow-md hover:shadow-xl
+        border hover:border-4 border-gray-700 border-opacity-50
+        hover:bg-gray-200 dark:hover:bg-gray-700
+        hover:-translate-y-1 transform
         transition-all duration-200;
       }
     </style>

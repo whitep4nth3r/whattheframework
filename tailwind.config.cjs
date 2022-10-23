@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         display: "Silkscreen",
-        sans: "Roboto",
+        sans: "Inter",
       },
     },
   },

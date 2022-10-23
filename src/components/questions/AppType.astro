@@ -27,7 +27,7 @@ const types = Object.values(AppType).map((value) => value);
 
         <span class="m-4 flex flex-wrap gap-2">
           {SupportingInfo.appType[type].examples.map((example: string) => (
-            <small class="text-xs px-4 py-1 rounded-3xl border border-gray-500 border-opacity-50">
+            <small class="text-xs first-letter:uppercase px-4 py-1 rounded-3xl border border-gray-500 border-opacity-50">
               {example}
             </small>
           ))}

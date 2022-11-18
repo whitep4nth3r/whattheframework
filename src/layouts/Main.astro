@@ -128,9 +128,34 @@
         overflow-y: scroll;
         max-width: 1184px;
       }
-    </style>
 
-    <!-- todo why is html tag disappearing??!?!? -->
+      .footer {
+        background-color: var(--black);
+        margin: 0;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .footer__text {
+        font-size: 1rem;
+        color: var(--offwhite);
+      }
+
+      .footer__text {
+        margin-bottom: 1rem;
+      }
+
+      .footer__text a {
+        color: inherit;
+        border-radius: 0.5rem;
+        transition: all 0.42s ease-in-out;
+      }
+
+      .footer__text a:focus {
+        outline: transparent;
+        box-shadow: var(--card-focus-shadow);
+      }
+    </style>
 
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -150,5 +175,13 @@
         <slot />
       </div>
     </main>
+    <footer class="footer">
+      <p class="footer__text">🔥 Made by <a href="https://whitep4nth3r.com" target="_blank">whitep4nth3r</a> 🔥</p>
+      <p class="footer__text">
+        <a href="https://whitep4nth3r.com/blog/twitter-tech-history-spa/" target="_blank">
+          Read why I'm not working on this website right now.
+        </a>
+      </p>
+    </footer>
   </body>
 </html>

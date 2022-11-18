@@ -11,7 +11,7 @@ import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 export const Eleventy: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Static, WebsiteType.Hybrid],
   appTypesInOrderOfPriority: [AppType.Mpa],
-  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
+  features: [FrameworkFeatures.Cli, FrameworkFeatures.TypeScript],
   usesFrameworks: [],
   templatingEngines: [Liquid],
   ecosystemIntegrations: [],

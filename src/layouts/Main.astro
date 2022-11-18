@@ -1,36 +1,187 @@
 ---
 ---
 
-<style is:global>
-  * {
-    box-sizing: border-box;
-  }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style is:global>
+      :root {
+        --black: #1b1b1b;
+        --grey-dark: #1d2939;
+        --blue-dark: #101828;
+        --offwhite: #f2f4f7;
+        --rainbow1: #ffd20e;
+        --rainbow2: #e5bc08;
+        --rainbow3: #ec8401;
+        --rainbow4: #e65c04;
+        --rainbow5: #e52e06;
+        --rainbow6: #de006b;
+        --rainbow7: #ca039e;
+        --rainbow8: #a203cb;
+        --rainbow9: #6d01c9;
+        --rainbow10: #22008f;
+        --rainbow11: #062f9a;
+        --rainbow12: #0045ac;
+        --rainbow13: #007db2;
+        --rainbow14: #00b8d9;
 
-  html {
-    font-size: 100%;
-  }
+        --card-text-color: var(--grey-dark);
+        --card-bg: radial-gradient(73.46% 87.33% at 0% 0%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%),
+          linear-gradient(125deg, rgba(255, 255, 255, 0.8) 0%, rgba(229, 217, 236, 0.8) 100%);
+        --card-pill-bg: var(--offwhite);
+        --card-pill-mix-blend-mode: multiply;
+        --card-focus-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #00ffaa;
 
-  body {
-    font-size: 1rem;
-  }
-</style>
+        --card-logo-bg-color: var(--offwhite);
 
-<style>
-  main {
-    max-width: 700px;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-  }
-</style>
+        --card-padding: 2rem;
+        --card-border-radius: 2rem;
 
-<meta charset="utf-8" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="viewport" content="width=device-width" />
-<meta name="generator" content={Astro.generator} />
-<title>What the Framework?</title>
+        --card-link-text-color: #475467;
+        --card-link-text-color-hover: #1d2939;
 
-<body>
-  <main>
-    <slot />
-  </main>
-</body>
+        --card-link-bg-hover: var(--offwhite);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      html {
+        font-size: 100%;
+      }
+
+      body {
+        font-size: 1rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+          "Open Sans", "Helvetica Neue", sans-serif;
+        margin: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        align-items: stretch;
+        padding: 1rem;
+      }
+    </style>
+
+    <style>
+      :root {
+        --header-height: 6.25rem;
+      }
+
+      .header {
+        background-color: var(--black);
+        margin: 0;
+        height: var(--header-height);
+        color: var(--offwhite);
+        padding: 1rem;
+      }
+
+      .header__link {
+        z-index: 10;
+        position: relative;
+        display: inline-block;
+        transition: all 0.42s ease-in-out;
+        border-radius: 1rem;
+      }
+
+      .header__logo {
+        max-width: 100%;
+      }
+
+      .header__link:focus {
+        outline: transparent;
+        box-shadow: var(--card-focus-shadow);
+      }
+
+      main {
+        --stop-size: calc(100vh - var(--header-height)) / 14;
+        min-height: calc(100vh - var(--header-height));
+        background-attachment: fixed;
+        background: linear-gradient(
+          to bottom,
+          var(--rainbow1) calc(var(--stop-size)),
+          var(--rainbow2) calc(var(--stop-size)) calc((var(--stop-size)) * 2),
+          var(--rainbow3) calc((var(--stop-size)) * 2) calc((var(--stop-size)) * 3),
+          var(--rainbow4) calc((var(--stop-size)) * 3) calc((var(--stop-size)) * 4),
+          var(--rainbow5) calc((var(--stop-size)) * 4) calc((var(--stop-size)) * 5),
+          var(--rainbow6) calc((var(--stop-size)) * 5) calc((var(--stop-size)) * 6),
+          var(--rainbow7) calc((var(--stop-size)) * 6) calc((var(--stop-size)) * 7),
+          var(--rainbow8) calc((var(--stop-size)) * 7) calc((var(--stop-size)) * 8),
+          var(--rainbow9) calc((var(--stop-size)) * 8) calc((var(--stop-size)) * 9),
+          var(--rainbow10) calc((var(--stop-size)) * 9) calc((var(--stop-size)) * 10),
+          var(--rainbow11) calc((var(--stop-size)) * 10) calc((var(--stop-size)) * 11),
+          var(--rainbow12) calc((var(--stop-size)) * 11) calc((var(--stop-size)) * 12),
+          var(--rainbow13) calc((var(--stop-size)) * 12) calc((var(--stop-size)) * 13),
+          var(--rainbow14) calc((var(--stop-size)) * 13) calc((var(--stop-size)) * 14)
+        );
+      }
+
+      .wrapper {
+        padding: 5rem 0;
+        margin: 0 auto;
+        height: calc(100vh - var(--header-height));
+        overflow-y: scroll;
+        max-width: 1184px;
+      }
+
+      .footer {
+        background-color: var(--black);
+        margin: 0;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .footer__text {
+        font-size: 1rem;
+        color: var(--offwhite);
+      }
+
+      .footer__text {
+        margin-bottom: 1rem;
+      }
+
+      .footer__text a {
+        color: inherit;
+        border-radius: 0.5rem;
+        transition: all 0.42s ease-in-out;
+      }
+
+      .footer__text a:focus {
+        outline: transparent;
+        box-shadow: var(--card-focus-shadow);
+      }
+    </style>
+
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>What the Framework?</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="/" title="Navigate to homepage" class="header__link">
+        <img class="header__logo" src="/img/logo.svg" alt="What the Framework" />
+      </a>
+    </header>
+    <main>
+      <div class="wrapper">
+        <slot />
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">🔥 Made by <a href="https://whitep4nth3r.com" target="_blank">whitep4nth3r</a> 🔥</p>
+      <p class="footer__text">
+        <a href="https://whitep4nth3r.com/blog/twitter-tech-history-spa/" target="_blank">
+          Read why I'm not working on this website right now.
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>

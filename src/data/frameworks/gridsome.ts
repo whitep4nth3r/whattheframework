@@ -4,7 +4,7 @@ import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 export const Gridsome: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Static],
   appTypesInOrderOfPriority: [AppType.Spa],
-  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
+  features: [FrameworkFeatures.Cli, FrameworkFeatures.TypeScript],
   usesFrameworks: [Vue],
   templatingEngines: [],
   ecosystemIntegrations: [],

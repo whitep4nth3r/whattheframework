@@ -10,10 +10,8 @@ export enum AppType {
 }
 
 export enum FrameworkFeatures {
-  TypeScript = "typescript",
-  Cli = "cli",
-  Test = "test",
-  Yolo = "yolo",
+  Cli = "CLI",
+  TypeScript = "TypeScript",
 }
 
 export type TemplatingEngine = {

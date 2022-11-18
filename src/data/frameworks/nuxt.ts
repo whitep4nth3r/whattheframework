@@ -4,7 +4,7 @@ import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 export const Nuxt: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Hybrid, WebsiteType.Static, WebsiteType.Dynamic],
   appTypesInOrderOfPriority: [AppType.Spa, AppType.Mpa],
-  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
+  features: [FrameworkFeatures.Cli, FrameworkFeatures.TypeScript],
   usesFrameworks: [Vue],
   templatingEngines: [],
   ecosystemIntegrations: [],

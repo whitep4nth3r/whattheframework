@@ -4,7 +4,7 @@ import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 export const Remix: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Dynamic],
   appTypesInOrderOfPriority: [AppType.Spa],
-  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli, FrameworkFeatures.Yolo],
+  features: [FrameworkFeatures.Cli, FrameworkFeatures.TypeScript],
   usesFrameworks: [React],
   templatingEngines: [],
   ecosystemIntegrations: [],

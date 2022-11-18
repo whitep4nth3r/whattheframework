@@ -5,6 +5,7 @@ import StartOver from "../../../components/StartOver.astro";
 import Validator from "../../../utils/Validator";
 import FrameworkOptions from "../../../components/FrameworkOptions.astro";
 import FrameworkSelector from "../../../utils/FrameworkSelector";
+import QuestionCard from "../../../components/questions/QuestionCard.astro";
 import { SupportingInfo } from "../../../data/supporting-info";
 import { shuffle } from "../../../utils/tools";
 
@@ -19,24 +20,17 @@ const options = FrameworkSelector({ websiteType: params.websiteType, appType: pa
 const topPicks = shuffle(options.filter((option) => option.appTypesInOrderOfPriority[0] === params.appType));
 
 const otherPicks = shuffle(options.filter((option) => option.appTypesInOrderOfPriority[0] !== params.appType));
+
+const headline = `💡 You chose a ${SupportingInfo.websiteType[params.websiteType as WebsiteType].name} that's a ${
+  SupportingInfo.appType[params.appType as AppType].name
+}.`;
 ---
 
 <Main>
-  <h1>
-    Your {SupportingInfo.websiteType[params.websiteType as WebsiteType].name} is most probably suited to a {
-      SupportingInfo.appType[params.appType as AppType].name
-    }
-  </h1>
-  <p>{SupportingInfo.appType[params.appType as AppType].description}</p>
+  <QuestionCard headline={headline} supporting="Here are some options!" />
 
-  <h2>
-    Top picks for {SupportingInfo.appType[params.appType as AppType].name}
-    {SupportingInfo.websiteType[params.websiteType as WebsiteType].name}s
-  </h2>
-  <FrameworkOptions options={topPicks} allowFilter={true} />
-
-  <h2>Other frameworks that may also suit this type of website</h2>
-  <FrameworkOptions options={otherPicks} />
+  <FrameworkOptions options={topPicks} allowFilter={false} topPick={true} />
+  <FrameworkOptions options={otherPicks} topPick={false} />
 
   <div style="margin-top: 100px;">
     <StartOver />

@@ -10,7 +10,7 @@ import { Framework, WebsiteType, AppType, FrameworkFeatures } from "../types";
 export const Astro: Framework = {
   websiteTypesInOrderOfPriority: [WebsiteType.Static, WebsiteType.Dynamic],
   appTypesInOrderOfPriority: [AppType.Mpa],
-  features: [FrameworkFeatures.TypeScript, FrameworkFeatures.Cli],
+  features: [FrameworkFeatures.Cli, FrameworkFeatures.TypeScript],
   usesFrameworks: [Angular, Preact, React, SolidJs, Vue],
   templatingEngines: [],
   ecosystemIntegrations: [],

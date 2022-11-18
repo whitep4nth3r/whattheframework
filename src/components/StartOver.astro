@@ -1,4 +1,27 @@
 ---
 ---
 
-<a href="/">Start over</a>
+<style>
+  .startOver {
+    background-color: var(--offwhite);
+    color: var(--black);
+    padding: 0.75rem 2rem;
+    border-radius: calc(var(--card-border-radius) / 2);
+    text-align: center;
+    margin: 2rem auto 0 auto;
+    display: block;
+    width: max-content;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.42s ease-in-out;
+  }
+
+  .startOver:focus {
+    outline: transparent;
+    box-shadow: var(--card-focus-shadow);
+  }
+</style>
+
+<a href="/" class="startOver">Start over</a>

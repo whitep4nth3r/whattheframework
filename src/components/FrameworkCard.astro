@@ -1,7 +1,7 @@
 ---
 import type { Framework } from "../data/types";
 import { Frameworks } from "../data/frameworks";
-const { data } = Astro.props;
+const { data, topPick } = Astro.props;
 
 function getFrameworkLogo(frameworkName: string): string {
   const fw = Frameworks.find((fw) => fw.meta.name === frameworkName);
@@ -24,6 +24,7 @@ function getFrameworkLogo(frameworkName: string): string {
     color: var(--card-text-color);
     box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
     transition: all 0.42s ease-in-out;
+    overflow: hidden;
   }
 
   .framework__name {
@@ -127,16 +128,31 @@ function getFrameworkLogo(frameworkName: string): string {
   .framework__linksItem:focus {
     outline: transparent;
     box-shadow: var(--card-focus-shadow);
- 
+  }
+
+  .framework__topPick {
+    text-transform: uppercase;
+    transform: rotate(-35deg);
+    position: absolute;
+    z-index: 10;
+    background: var(--rainbow6);
+    color: #fff;
+    padding: 2rem 4rem 0.5rem 4rem;
+    font-size: 1rem;
+    font-weight: bold;
+    top: -6px;
+    left: -64px;
+    box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
   }
 </style>
 
 <li class="framework" data-card data-features={data.features.map((feat: string) => feat).join(",")}>
   <div>
-  <div class="framework__logo">
-    <img src={`https://github.com/${data.meta.githubOrg}.png`} alt={data.meta.name}
-    class="framework__logoImg" loading="lazy" />
-  </div>
+    {topPick ? <span class="framework__topPick">top pick</span> : ""}
+    <div class="framework__logo">
+      <img src={`https://github.com/${data.meta.githubOrg}.png`} alt={data.meta.name}
+      class="framework__logoImg" loading="lazy" />
+    </div>
     <h2 class="framework__name">{data.meta.name}</h2>
     
     <ul class="framework__featureList">
@@ -166,6 +182,6 @@ function getFrameworkLogo(frameworkName: string): string {
     <a href={data.meta.docsLink} target="_blank" class="framework__linksItem">
       <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10.1663 1.89111V5.33323C10.1663 5.79994 10.1663 6.0333 10.2572 6.21156C10.3371 6.36836 10.4645 6.49584 10.6213 6.57574C10.7996 6.66656 11.033 6.66656 11.4997 6.66656H14.9418M10.1663 14.1665H5.16634M11.833 10.8332H5.16634M15.1663 8.32336V14.3332C15.1663 15.7333 15.1663 16.4334 14.8939 16.9681C14.6542 17.4386 14.2717 17.821 13.8013 18.0607C13.2665 18.3332 12.5665 18.3332 11.1663 18.3332H5.83301C4.43288 18.3332 3.73281 18.3332 3.19803 18.0607C2.72763 17.821 2.34517 17.4386 2.10549 16.9681C1.83301 16.4334 1.83301 15.7333 1.83301 14.3332V5.6665C1.83301 4.26637 1.83301 3.56631 2.10549 3.03153C2.34517 2.56112 2.72763 2.17867 3.19803 1.93899C3.73281 1.6665 4.43288 1.6665 5.83301 1.6665H8.50949C9.12096 1.6665 9.4267 1.6665 9.71442 1.73558C9.96951 1.79682 10.2134 1.89783 10.4371 2.0349C10.6893 2.18951 10.9055 2.4057 11.3379 2.83808L13.9948 5.49493C14.4271 5.92731 14.6433 6.1435 14.7979 6.39579C14.935 6.61947 15.036 6.86333 15.0973 7.11842C15.1663 7.40614 15.1663 7.71188 15.1663 8.32336Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg> Docs</a>
+      </svg> Docs</a>
   </div>
 </li>

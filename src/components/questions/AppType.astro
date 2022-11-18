@@ -18,11 +18,42 @@ const types = Object.values(AppType).map((value) => value);
   }
 
   .details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .details details {
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    background: var(--card-bg);
+    backdrop-filter: blur(1.25rem);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-decoration: none;
+    box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+    transition: all 0.42s ease-in-out;
+  }
+
+  .details summary {
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: calc(32 / 24);
+  }
+
+  .details p {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--card-text-color);
+    margin-top: 1rem;
   }
 </style>
-
-<QuestionCard question={`Do you need your website to maintain state across multiple pages?`} />
 
 <div class="grid">
   {
@@ -36,13 +67,17 @@ const types = Object.values(AppType).map((value) => value);
     ))
   }
 </div>
-
 <div class="details">
-  <h2>What is state?</h2>
-  <p>
-    State is what a thing is currently like. The current state of your house is made up of all the furniture, objects,
-    animals, plants, and people inside it, and other environmental factors such as the temperature and whether you need
-    to do the washing up. The current state of a piece of software includes all the data held about that application in
-    a browser at any one time.
-  </p>
+  <details>
+    <summary>What is a Single-Page Application (SPA)?</summary>
+    <p>
+      A SPA is a JavaScript application that, once loaded in the browser, updates the page view locally by modifying the
+      DOM, rather than by navigating to a new page as an HTML response from the server. As a result, SPAs are able to
+      persist parts of a page that don't change between routes, such as login state or work in progress. Whilst there
+      are certainly ways to maintain state without using a SPA, such as using session cookies or your own bespoke
+      JavaScript, the SPA approach is often useful for front end developers who don't want to venture into more
+      back-endy territory. The core concept of SPAs is to make web pages feel like native device applications through
+      faster page transitions.
+    </p>
+  </details>
 </div>

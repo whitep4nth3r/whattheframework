@@ -8,6 +8,7 @@ import FrameworkSelector from "../../utils/FrameworkSelector";
 import { WebsiteType } from "../../data/types";
 import { SupportingInfo } from "../../data/supporting-info";
 import { shuffle } from "../../utils/tools";
+import QuestionCard from "../../components/questions/QuestionCard.astro";
 
 const { params } = Astro;
 
@@ -20,23 +21,22 @@ const options = FrameworkSelector({ websiteType: params.websiteType, appType: pa
 const topPicks = shuffle(options.filter((option) => option.websiteTypesInOrderOfPriority[0] === params.websiteType));
 
 const otherPicks = shuffle(options.filter((option) => option.websiteTypesInOrderOfPriority[0] !== params.websiteType));
+
+const headline = `💡 Your project may benefit from being a ${
+  SupportingInfo.websiteType[params.websiteType as WebsiteType].name
+} made up of ${SupportingInfo.websiteType[params.websiteType as WebsiteType].technology}.`;
+
+const supporting =
+  params.websiteType !== WebsiteType.Static ? "Do you want to build a Single-Page Application in JavaScript?" : "";
 ---
 
 <Main>
-  <h1>
-    Your website is most probably a {SupportingInfo.websiteType[params.websiteType as WebsiteType].name}
-  </h1>
-  <h2>made up of {SupportingInfo.websiteType[params.websiteType as WebsiteType].technology}</h2>
-
-  <hr />
+  <QuestionCard headline={headline} supporting={supporting} />
 
   {params.websiteType !== WebsiteType.Static ? <AppType /> : ""}
 
-  <h2>Top picks for {SupportingInfo.websiteType[params.websiteType as WebsiteType].name}s</h2>
-  <FrameworkOptions options={topPicks} allowFilter={true} />
-
-  <h2>Other frameworks that may also suit this type of website</h2>
-  <FrameworkOptions options={otherPicks} />
+  <FrameworkOptions options={topPicks} allowFilter={false} topPick={true} />
+  <FrameworkOptions options={otherPicks} topPick={false} />
 
   <div style="margin-top: 100px;">
     <StartOver />

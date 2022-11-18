@@ -1,5 +1,5 @@
 ---
-const { question } = Astro.props;
+const { headline, supporting } = Astro.props;
 ---
 
 <style>
@@ -14,13 +14,26 @@ const { question } = Astro.props;
     padding: var(--card-padding);
     text-decoration: none;
     box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: calc(32 / 24);
     color: var(--offwhite);
     margin-left: 1rem;
     margin-right: 1rem;
   }
+
+  .headline {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: calc(32 / 24);
+  }
+
+  .supporting {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: calc(32 / 24);
+    margin-top: 2rem;
+  }
 </style>
 
-<h1 class="question">{question}</h1>
+<div class="question">
+  <h1 class="headline">{headline}</h1>
+  {supporting ? <h2 class="supporting">{supporting}</h2> : ""}
+</div>
